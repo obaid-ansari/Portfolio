@@ -1,3 +1,13 @@
+/* Hide scrollbar for all browsers */
+body {
+  scrollbar-width: 0; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
 .row {
   display: flex;
   justify-content: center;

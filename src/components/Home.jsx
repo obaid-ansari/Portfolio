@@ -119,7 +119,11 @@ const Home = () => {
       </a>
 
       {/* Scroll Mouse Animation */}
-      <div className="realistic-mouse-scroll">
+      <div
+        className="realistic-mouse-scroll"
+        data-aos="fade-up"
+        data-aos-delay="1600"
+        data-aos-duration="1000">
         <div className="mouse">
           <div className="wheel"></div>
         </div>
