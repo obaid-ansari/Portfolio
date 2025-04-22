@@ -1,0 +1,398 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/** For All Headings  */
+.gradient {
+  background: linear-gradient(to right, #7549f2, #da53f7);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/** Home Section */
+#home {
+  position: relative;
+  background: url("../assets/herosection2.webp") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  color: black;
+  overflow: hidden;
+}
+
+/* Add a pseudo-element for the glass effect overlay */
+#home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6); /* light tint */
+  backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+/* Push your content above the glass layer */
+#home > * {
+  position: relative;
+  z-index: 1;
+}
+
+.blink {
+  animation: blink 0.7s infinite;
+  color: #0d6efd;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.icon-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  margin: 0px 5px;
+  color: white;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  text-decoration: none;
+  transition: all 0.3s linear;
+}
+
+.linkedin {
+  background-color: #0077b5;
+  &:hover {
+    filter: drop-shadow(0px 0px 10px #0077b5);
+  }
+}
+
+#github {
+  background-color: #181717;
+  &:hover {
+    filter: drop-shadow(0px 0px 10px #181717);
+  }
+}
+
+.facebook {
+  background-color: #1877f2;
+  &:hover {
+    filter: drop-shadow(0px 0px 10px #1877f2);
+  }
+}
+
+.instagram {
+  background-color: #e1306c;
+  &:hover {
+    filter: drop-shadow(0px 0px 10px #e1306c);
+  }
+}
+
+.email {
+  background-color: #d44638;
+  &:hover {
+    filter: drop-shadow(0px 0px 10px #d44638);
+  }
+}
+
+.realistic-mouse-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mouse {
+  width: 35px;
+  height: 50px;
+  border: 2px solid #222;
+  border-radius: 25px;
+  position: relative;
+}
+
+.wheel {
+  width: 5px;
+  height: 8px;
+  background-color: #222;
+  border-radius: 4px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: wheel-scroll 1.5s infinite ease-in-out;
+}
+
+@keyframes wheel-scroll {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(15px);
+    opacity: 0;
+  }
+}
+
+.cv-btn {
+  background: linear-gradient(to right, #7549f2, #da53f7);
+  filter: drop-shadow(0 0 10px hsl(256, 87%, 62%));
+}
+
+/** About Section */
+
+#about {
+  height: auto;
+  display: grid;
+  place-content: center;
+}
+
+.img-container {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.img-container:hover img {
+  transform: scale(1.03); /* Slight zoom-in on hover */
+}
+
+/* Shine beam */
+.shine {
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: rotate(0deg);
+  filter: blur(20px);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Trigger animation on hover */
+.img-container:hover .shine {
+  animation: shineEffect 0.8s linear;
+}
+
+/* Keyframes for shine beam movement */
+@keyframes shineEffect {
+  0% {
+    top: -150%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.shade {
+  padding: 0px 15px;
+  border-left: 5px solid #995cef;
+  border-radius: 15px;
+}
+
+/** Skills Section */
+
+#skills {
+  height: auto;
+}
+
+.box {
+  transition: all 0.3s linear;
+}
+.box:hover {
+  transform: scale(1.03);
+}
+
+/* HTML */
+.html {
+  background-color: #ffddd4;
+  color: #ff5833;
+}
+.html:hover {
+  box-shadow: 0 0 10px #ff5833;
+}
+
+/* CSS */
+.css {
+  background-color: #e9d9f5;
+  color: #6d399e;
+}
+.css:hover {
+  box-shadow: 0 0 10px #6d399e;
+}
+
+/* JavaScript */
+.js {
+  background-color: #fff9d0;
+  color: #efd81d;
+}
+.js:hover {
+  box-shadow: 0 0 10px #efd81d;
+}
+
+/* Bootstrap */
+.bootstrap {
+  background-color: #e4d5fd;
+  color: #6e10f4;
+}
+.bootstrap:hover {
+  box-shadow: 0 0 10px #6e10f4;
+}
+
+/* GitHub */
+.github {
+  background-color: #dcdcdc;
+  color: #24292e;
+}
+.github:hover {
+  box-shadow: 0 0 10px #24292e;
+}
+
+/* React */
+.react {
+  background-color: #d6f3fa;
+  color: #58c4dc;
+}
+.react:hover {
+  box-shadow: 0 0 10px #58c4dc;
+}
+
+/* Git */
+.git {
+  background-color: #f1502f50;
+  color: #f1502f;
+}
+.git:hover {
+  box-shadow: 0 0 10px #f1502f;
+}
+
+/* Npm */
+.npm {
+  background-color: #eee;
+  color: #f1502f;
+}
+.npm:hover {
+  box-shadow: 0 0 10px #aaa;
+}
+
+/* Node.js */
+.node {
+  background-color: #c9f4cc;
+  color: #4aaa4d;
+}
+.node:hover {
+  box-shadow: 0 0 10px #4aaa4d;
+}
+
+/** Projects Section */
+
+#projects {
+  height: auto;
+}
+
+.company-logo {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to right, #7649f2cd, #d953f7c2);
+  color: white;
+  align-items: center;
+}
+
+/** Contact Section */
+
+#contact {
+  height: auto;
+}
+
+.form {
+  background: linear-gradient(to right, #7649f2cd, #d953f7c2);
+}
+
+.btn-linkedin {
+  background-color: #0077b5;
+  color: #fff;
+  transition: all 0.3s linear;
+  &:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #0077b5;
+    background-color: #0077b5;
+  }
+}
+
+.btn-github {
+  background-color: #181717;
+  color: #fff;
+  transition: all 0.3s linear;
+  &:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #181717;
+    background-color: #181717;
+  }
+}
+
+.btn-facebook {
+  background-color: #1877f2;
+  color: #fff;
+  transition: all 0.3s linear;
+  &:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #1877f2;
+    background-color: #1877f2;
+  }
+}
+
+.btn-instagram {
+  background-color: #e1306c;
+  color: #fff;
+  transition: all 0.3s linear;
+  &:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #e1306c;
+    background-color: #e1306c;
+  }
+}
+.btn-email {
+  background-color: #d44638;
+  color: #fff;
+  transition: all 0.3s linear;
+  &:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #d44638;
+    background-color: #d44638;
+  }
+}
