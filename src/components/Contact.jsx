@@ -3,6 +3,7 @@ import axios from "axios";
 
 const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,12 +17,17 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
     try {
       await axios.post("https://porffolio-backend.onrender.com/send", formData);
       setSubmitMessage("Form submitted successfully. ✅");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setSubmitMessage("Form submission failed. Please try later! ❌");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -59,7 +65,7 @@ const Contact = () => {
       icon: "envelope",
       label: "Email",
       className: "btn-email",
-      type: "solid", // 👈
+      type: "solid",
     },
   ];
 
@@ -84,7 +90,6 @@ const Contact = () => {
                   className={`fa-${
                     link.type === "solid" ? "solid" : "brands"
                   } fa-${link.icon} fs-3 pe-2`}></i>
-
                 {link.label}
               </a>
             ))}
@@ -137,12 +142,21 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="btn bg-white text-secondary fs-5 fw-bold my-2 w-100">
-                Submit
+                className="btn bg-white text-secondary fs-5 fw-bold my-2 w-100"
+                disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit"}
               </button>
 
+              {isSubmitting && (
+                <div className="text-center">
+                  <div className="spinner-border text-light my-2" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              )}
+
               {submitMessage && (
-                <p className="text-center fw-semibold mt-2 m-0">
+                <p className="text-center fw-semibold mt-2 m-0 text-white">
                   {submitMessage}
                 </p>
               )}
