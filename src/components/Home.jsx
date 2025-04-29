@@ -109,7 +109,7 @@ const Home = () => {
 
       <a
         download
-        href="../src/assets/obaidresume.pdf"
+        href="/obaidresume.pdf"
         target="_blank"
         class="cv-btn btn my-4 px-3 py-2 rounded-3 bg-light text-white rounded-5 fw-bold text-decoration-none"
         data-aos="fade-up"
