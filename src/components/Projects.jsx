@@ -9,17 +9,22 @@ const Projects = () => {
       <h3 className="pt-5 display-5 fw-bold text-center mb-4">
         My <span className="gradient">Projects</span>
       </h3>
-      <div class="container text-center px-4 p-lg-0">
-        <div class="row d-flex align-items-stretch">
-          <div class="col-12 col-lg-3 m-3">
-            <div class="cards h-100 p-3 rounded-4 d-flex flex-column shadow">
+      <div className="container text-center px-4 p-lg-0">
+        <div className="row d-flex align-items-stretch">
+          <div className="col-12 col-lg-3 m-3">
+            <div
+              className="cards cards-1 h-100 p-3 rounded-4 d-flex flex-column shadow"
+              data-aos="fade-up"
+              data-aos-delay="0"
+              data-aos-duration="1000"
+              data-aos-once="ture">
               <img
                 src={Safa}
                 alt="Safa Tours And Travels"
-                class="company-logo mb-3 rounded-3"
+                className="company-logo mb-3 rounded-3"
               />
-              <p class="fw-semibold">
-                <span class="fw-bolder">Safa Tours and Travels</span> - A
+              <p className="fw-semibold">
+                <span className="fw-bolder">Safa Tours and Travels</span> - A
                 user-friendly platform offering flight bookings, hotel stays,
                 visas, holiday packages, forex, and religious tours like Hajj
                 and Umrah, with direct Gmail inquiries for easy communication.
@@ -27,41 +32,51 @@ const Projects = () => {
               <a
                 href="https://safatour.netlify.app/"
                 target="_blank"
-                class="btn mt-auto rounded-3 bg-light text-black shadow fw-bold text-decoration-none">
+                className="btn btn-dark mt-auto rounded-3 shadow  fw-bold text-decoration-none">
                 Safa Tours and Travels
               </a>
             </div>
           </div>
 
-          <div class="col-12 col-lg-3 m-3">
-            <div class="cards h-100 p-3 rounded-4 d-flex flex-column shadow">
+          <div className="col-12 col-lg-3 m-3">
+            <div
+              className="cards cards-2 h-100 p-3 rounded-4 d-flex flex-column shadow"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="1000"
+              data-aos-once="ture">
               <img
                 src={Onleed}
                 alt="Onleeds Media"
-                class="company-logo mb-3 rounded-3"
+                className="company-logo mb-3 rounded-3"
               />
-              <p class="fw-semibold">
-                <span class="fw-bolder">Onleed Media</span> - Founded in August
-                2024, Onleed Media is a digital marketing agency specializing in
-                sales optimization, lead generation, targeted ads (Google, Meta,
-                LinkedIn), and website development. We help businesses grow
-                online with innovative strategies.
+              <p className="fw-semibold">
+                <span className="fw-bolder">Onleed Media</span> - Founded in
+                August 2024, Onleed Media is a digital marketing agency
+                specializing in sales optimization, lead generation, targeted
+                ads (Google, Meta, LinkedIn), and website development. We help
+                businesses grow online with innovative strategies.
               </p>
               <a
                 href="https://www.onleedmedia.com/"
                 target="_blank"
-                class="btn mt-auto rounded-3 bg-light text-black shadow fw-bold text-decoration-none">
+                className="btn mt-auto rounded-3 btn-dark shadow fw-bold text-decoration-none">
                 Onleeds Media
               </a>
             </div>
           </div>
 
-          <div class="col-12 col-lg-3 m-3">
-            <div class="cards h-100 p-3 rounded-4 d-flex flex-column shadow">
+          <div className="col-12 col-lg-3 m-3">
+            <div
+              className="cards cards-3 h-100 p-3 rounded-4 d-flex flex-column shadow"
+              data-aos="fade-up"
+              data-aos-delay="500"
+              data-aos-duration="1000"
+              data-aos-once="ture">
               <img
                 src={AllProjects}
                 alt="Onleeds Media"
-                class="company-logo mb-3 rounded-3"
+                className="company-logo mb-3 rounded-3"
               />
               <p className="fw-semibold">
                 <span className="fw-bolder">All Projects</span> - A showcase of
@@ -71,7 +86,7 @@ const Projects = () => {
               <a
                 href="https://allprojectsinone.netlify.app/"
                 target="_blank"
-                class="btn mt-auto rounded-3 bg-light text-dark shadow  fw-bold text-decoration-none">
+                className="btn mt-auto rounded-3 btn-dark shadow  fw-bold text-decoration-none">
                 See All Projects
               </a>
             </div>

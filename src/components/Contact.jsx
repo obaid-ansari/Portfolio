@@ -95,11 +95,11 @@ const Contact = () => {
             ))}
           </div>
 
-          <div className="col-md-10 col-lg-6 col-xl-5 form rounded-4 shadow">
-            <form className="py-4 px-3" onSubmit={handleSubmit}>
-              <p className="fs-2 fw-bold text-center text-white">Contact Me</p>
+          <div className="col-md-10 col-lg-6 col-xl-5 form rounded-4">
+            <form className="py-3 px-2" onSubmit={handleSubmit}>
+              <p className="fs-2 fw-bold text-center">Contact Me</p>
 
-              <label htmlFor="name" className="fw-semibold text-white fs-5">
+              <label htmlFor="name" className="fw-semibold  fs-5">
                 Name:
               </label>
               <input
@@ -113,7 +113,7 @@ const Contact = () => {
                 className="form-control fw-semibold my-2"
               />
 
-              <label htmlFor="email" className="fw-semibold text-white fs-5">
+              <label htmlFor="email" className="fw-semibold fs-5">
                 Email:
               </label>
               <input
@@ -127,7 +127,7 @@ const Contact = () => {
                 className="form-control fw-semibold my-2"
               />
 
-              <label htmlFor="message" className="fw-semibold text-white fs-5">
+              <label htmlFor="message" className="fw-semibold  fs-5">
                 Message:
               </label>
               <textarea
@@ -142,7 +142,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="btn bg-white text-secondary fs-5 fw-bold my-2 w-100"
+                className="btn btn-light fs-5 fw-bold my-2 w-100"
                 disabled={isSubmitting}>
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
@@ -156,7 +156,7 @@ const Contact = () => {
               )}
 
               {submitMessage && (
-                <p className="text-center fw-semibold mt-2 m-0 text-white">
+                <p className="text-center fw-semibold mt-2 m-0 ">
                   {submitMessage}
                 </p>
               )}

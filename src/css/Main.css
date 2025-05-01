@@ -38,8 +38,8 @@ body::-webkit-scrollbar {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.5); /* light tint */
-  backdrop-filter: blur(10px);
+  background: linear-gradient(-45deg, #ba9df150, #f3eefcd6, #ba9df150);
+  backdrop-filter: blur(5px);
   z-index: 0;
 }
 
@@ -51,7 +51,7 @@ body::-webkit-scrollbar {
 
 .blink {
   animation: blink 0.7s infinite;
-  color: #0d6efd;
+  color: #da53f7;
 }
 
 @keyframes blink {
@@ -76,10 +76,16 @@ body::-webkit-scrollbar {
   border: 3px solid #fff;
   text-decoration: none;
   transition: all 0.3s linear;
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .linkedin {
   background-color: #0077b5;
+  color: #fff;
+  transition: all 0.3s linear;
+
   &:hover {
     filter: drop-shadow(0px 0px 10px #0077b5);
   }
@@ -87,6 +93,9 @@ body::-webkit-scrollbar {
 
 #github {
   background-color: #181717;
+  color: #fff;
+  transition: all 0.3s linear;
+
   &:hover {
     filter: drop-shadow(0px 0px 10px #181717);
   }
@@ -94,6 +103,9 @@ body::-webkit-scrollbar {
 
 .facebook {
   background-color: #1877f2;
+  color: #fff;
+  transition: all 0.3s linear;
+
   &:hover {
     filter: drop-shadow(0px 0px 10px #1877f2);
   }
@@ -101,6 +113,9 @@ body::-webkit-scrollbar {
 
 .instagram {
   background-color: #e1306c;
+  color: #fff;
+  transition: all 0.3s linear;
+
   &:hover {
     filter: drop-shadow(0px 0px 10px #e1306c);
   }
@@ -108,6 +123,9 @@ body::-webkit-scrollbar {
 
 .email {
   background-color: #d44638;
+  color: #fff;
+  transition: all 0.3s linear;
+
   &:hover {
     filter: drop-shadow(0px 0px 10px #d44638);
   }
@@ -163,8 +181,7 @@ body::-webkit-scrollbar {
 
 #about {
   height: auto;
-  display: grid;
-  place-content: center;
+  background: linear-gradient(45deg, #ba9df1, #f3eefc, #ba9df1);
 }
 
 .img-container {
@@ -235,92 +252,66 @@ body::-webkit-scrollbar {
   height: auto;
 }
 
+/* Base Box Style */
 .box {
   transition: all 0.3s linear;
-}
-.box:hover {
-  transform: scale(1.03);
+  &:hover {
+    transform: translateY(-10px) !important;
+  }
 }
 
 /* HTML */
 .html {
-  background-color: #ffddd4;
+  background: linear-gradient(45deg, #ffb3a1, #ffddd4, #ffb3a1);
   color: #ff5833;
-}
-.html:hover {
-  box-shadow: 0 0 10px #ff5833;
 }
 
 /* CSS */
 .css {
-  background-color: #e9d9f5;
+  background: linear-gradient(45deg, #c5a2f7, #e9d9f5, #c5a2f7);
   color: #6d399e;
-}
-.css:hover {
-  box-shadow: 0 0 10px #6d399e;
 }
 
 /* JavaScript */
 .js {
-  background-color: #fff9d0;
-  color: #efd81d;
-}
-.js:hover {
-  box-shadow: 0 0 10px #efd81d;
+  background: linear-gradient(45deg, #f7e37b, #fff9d0, #f7e37b);
+  color: #ffe62a;
 }
 
 /* Bootstrap */
 .bootstrap {
-  background-color: #e4d5fd;
+  background: linear-gradient(45deg, #d1a7f2, #e4d5fd, #d1a7f2);
   color: #6e10f4;
-}
-.bootstrap:hover {
-  box-shadow: 0 0 10px #6e10f4;
 }
 
 /* GitHub */
 .github {
-  background-color: #dcdcdc;
+  background: linear-gradient(45deg, #a9a9a9, #dcdcdc, #a9a9a9);
   color: #24292e;
-}
-.github:hover {
-  box-shadow: 0 0 10px #24292e;
 }
 
 /* React */
 .react {
-  background-color: #d6f3fa;
-  color: #58c4dc;
-}
-.react:hover {
-  box-shadow: 0 0 10px #58c4dc;
+  background: linear-gradient(45deg, #58c4dc, #d6f3fa, #58c4dc);
+  color: #0090b0;
 }
 
 /* Git */
 .git {
-  background-color: #f1502f50;
+  background: linear-gradient(45deg, #f07a56, #f1502f50, #f07a56);
   color: #f1502f;
-}
-.git:hover {
-  box-shadow: 0 0 10px #f1502f;
 }
 
 /* Npm */
 .npm {
-  background-color: #eee;
+  background: linear-gradient(45deg, #d3d3d3, #eee, #d3d3d3);
   color: #f1502f;
-}
-.npm:hover {
-  box-shadow: 0 0 10px #aaa;
 }
 
 /* Node.js */
 .node {
-  background-color: #c9f4cc;
+  background: linear-gradient(45deg, #82e07e, #c9f4cc, #82e07e);
   color: #4aaa4d;
-}
-.node:hover {
-  box-shadow: 0 0 10px #4aaa4d;
 }
 
 /** Projects Section */
@@ -338,9 +329,19 @@ body::-webkit-scrollbar {
 .cards {
   display: flex;
   justify-content: center;
-  background: linear-gradient(to right, #7649f2cd, #d953f7c2);
-  color: white;
   align-items: center;
+}
+
+.cards-1 {
+  background: linear-gradient(45deg, #e1d0a5, #f5f0df, #e1d0a5);
+}
+
+.cards-2 {
+  background: linear-gradient(45deg, #f0e636, #fdf6a4, #f0e636);
+}
+
+.cards-3 {
+  background: linear-gradient(45deg, #ba9df1, #f3eefc, #ba9df1);
 }
 
 /** Contact Section */
@@ -350,59 +351,62 @@ body::-webkit-scrollbar {
 }
 
 .form {
-  background: linear-gradient(to right, #7649f2cd, #d953f7c2);
+  color: #fff;
+  background: linear-gradient(45deg, #ba9df1, #9366e7, #ba9df1);
+  transition: all 0.4s linear;
+  &:hover {
+    box-shadow: 0 12px 40px rgba(217, 83, 247, 0.2),
+      0 -12px 40px rgba(118, 73, 242, 0.2), 0 16px 80px rgba(217, 83, 247, 0.15),
+      0 -16px 80px rgba(118, 73, 242, 0.15);
+  }
 }
 
 .btn-linkedin {
-  background-color: #0077b5;
+  background: linear-gradient(45deg, #0077b5, #00a0dc);
   color: #fff;
   transition: all 0.3s linear;
-  &:hover {
-    color: #fff;
-    box-shadow: 0 0 10px #0077b5;
-    background-color: #0077b5;
-  }
+}
+.btn-linkedin:hover {
+  color: #fff;
+  box-shadow: 0 0 15px #00a0dc;
 }
 
 .btn-github {
-  background-color: #181717;
+  background: linear-gradient(45deg, #181717, #333);
   color: #fff;
   transition: all 0.3s linear;
-  &:hover {
-    color: #fff;
-    box-shadow: 0 0 10px #181717;
-    background-color: #181717;
-  }
+}
+.btn-github:hover {
+  color: #fff;
+  box-shadow: 0 0 15px #333;
 }
 
 .btn-facebook {
-  background-color: #1877f2;
+  background: linear-gradient(45deg, #1877f2, #4e9cf5);
   color: #fff;
   transition: all 0.3s linear;
-  &:hover {
-    color: #fff;
-    box-shadow: 0 0 10px #1877f2;
-    background-color: #1877f2;
-  }
+}
+.btn-facebook:hover {
+  color: #fff;
+  box-shadow: 0 0 15px #4e9cf5;
 }
 
 .btn-instagram {
-  background-color: #e1306c;
+  background: linear-gradient(45deg, #e1306c, #fd1d1d, #f77737);
   color: #fff;
   transition: all 0.3s linear;
-  &:hover {
-    color: #fff;
-    box-shadow: 0 0 10px #e1306c;
-    background-color: #e1306c;
-  }
 }
+.btn-instagram:hover {
+  color: #fff;
+  box-shadow: 0 0 15px #fd1d1d;
+}
+
 .btn-email {
-  background-color: #d44638;
+  background: linear-gradient(45deg, #d44638, #ff6651);
   color: #fff;
   transition: all 0.3s linear;
-  &:hover {
-    color: #fff;
-    box-shadow: 0 0 10px #d44638;
-    background-color: #d44638;
-  }
+}
+.btn-email:hover {
+  color: #fff;
+  box-shadow: 0 0 15px #ff6651;
 }

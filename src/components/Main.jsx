@@ -12,7 +12,7 @@ const Main = () => {
       <section id="home">
         <Home />
       </section>
-      <section id="about" className="py-5 bg-white">
+      <section id="about" className="py-5">
         <About />
       </section>
       <section id="skills" loading="lazy" className="pt-5 bg-white">
