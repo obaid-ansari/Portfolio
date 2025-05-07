@@ -8,7 +8,7 @@ const About = () => {
         About <span className="gradient">Me</span>
       </h3>
       <div className="container px-5 pb-0 pb-lg-5  text-center text-lg-start">
-        <div className="row">
+        <div className="row flex-column-reverse flex-lg-row">
           <div className="col-md-12 col-lg-6 p-lg-4">
             <div
               data-aos="fade-down"
@@ -54,7 +54,7 @@ const About = () => {
             </div>
           </div>
           <div
-            className="img-container d-none d-lg-block col-md-12 rounded-5 col-lg-5 p-0 shadow"
+            className="img-container mb-4 col-md-12 rounded-5 col-lg-5 p-0 shadow"
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-duration="1000"

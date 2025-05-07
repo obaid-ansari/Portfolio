@@ -111,11 +111,11 @@ const Home = () => {
         download
         href="/obaidresume.pdf"
         target="_blank"
-        class="cv-btn btn my-4 px-3 py-2 rounded-3 bg-light text-white rounded-5 fw-bold text-decoration-none"
+        class="cv-btn btn btn-lg my-4 px-3 py-2 rounded-3 bg-light text-white rounded-5 fw-bold text-decoration-none"
         data-aos="fade-up"
         data-aos-delay="1400"
         data-aos-duration="1000">
-        Download CV
+        Resume
       </a>
 
       {/* Scroll Mouse Animation */}

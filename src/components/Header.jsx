@@ -37,7 +37,7 @@ const Header = () => {
         className="navbar shadow navbar-expand-lg bg-white w-100"
         ref={navRef}>
         <div className="container px-3">
-          <a className="nav-brand fs-1 gradient">Obaid Ansari</a>
+          <a className="nav-brand display-5 gradient">Obaid Ansari</a>
           <button
             className="navbar-toggler text-white border border-white"
             type="button"

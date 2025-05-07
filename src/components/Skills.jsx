@@ -1,86 +1,99 @@
 import React from "react";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaBootstrap,
+  FaGitAlt,
+  FaGithub,
+  FaReact,
+  FaNpm,
+  FaNode,
+} from "react-icons/fa";
+import { SiMongodb } from "react-icons/si";
 
 const Skills = () => {
+  const skills = [
+    {
+      name: "HTML",
+      className: "html",
+      icon: <FaHtml5 />,
+      delay: 0,
+    },
+    {
+      name: "CSS",
+      className: "css",
+      icon: <FaCss3Alt />,
+      delay: 100,
+    },
+    {
+      name: "Javascript",
+      className: "js",
+      icon: <FaJs />,
+      delay: 200,
+    },
+    {
+      name: "Bootstrap",
+      className: "bootstrap",
+      icon: <FaBootstrap />,
+      delay: 0,
+    },
+    {
+      name: "Git",
+      className: "git",
+      icon: <FaGitAlt />,
+      delay: 100,
+    },
+    {
+      name: "Github",
+      className: "github",
+      icon: <FaGithub />,
+      delay: 200,
+    },
+    {
+      name: "React",
+      className: "react",
+      icon: <FaReact />,
+      delay: 0,
+    },
+    {
+      name: "MongoDB",
+      className: "mongodb",
+      icon: <SiMongodb />,
+      delay: 100,
+    },
+    {
+      name: "Npm/Yarn",
+      className: "npm",
+      icon: <FaNpm />,
+      delay: 200,
+    },
+    // {
+    //   name: "Node js",
+    //   className: "node",
+    //   icon: <FaNode />,
+    //   delay: 0,
+    // },
+  ];
+
   return (
     <>
       <h3 className="pt-5 display-5 fw-bold text-center">
         My <span className="gradient">Skills</span>
       </h3>
-      <div class="mt-4 container-fluid text-center">
-        <div class="row px-5">
-          <div
-            class="box html col-sm-12 col-md-5 col-lg-3 shadow rounded-4  m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="0"
-            data-aos-duration="1000">
-            <i class="display-1 pt-3 fa-brands fa-html5"></i>
-            <p className="fs-3 fw-bold">HTML</p>
-          </div>
-          <div
-            class="box css col-sm-12 col-md-5 col-lg-3 rounded-4 shadow m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="100"
-            data-aos-duration="1000">
-            <i class="display-1 pt-3 fa-brands fa-css"></i>
-            <p className="fs-3 fw-bold">CSS</p>
-          </div>
-          <div
-            class="box js col-sm-12 col-md-5 col-lg-3 rounded-4 shadow  m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="200"
-            data-aos-duration="1000">
-            <i class="display-1 pt-3 fa-brands fa-js"></i>
-            <p className="fs-3 fw-bold ">Javascript</p>
-          </div>
-          <div
-            class="box bootstrap col-sm-12 col-md-5 col-lg-3 rounded-4 shadow  m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="300"
-            data-aos-duration="1000">
-            <i class="display-1  pt-3 fa-brands fa-bootstrap"></i>
-            <p className="fs-3 fw-bold ">Bootstrap</p>
-          </div>
-          <div
-            class="box git col-sm-12 col-md-5 col-lg-3 rounded-4 shadow m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="400"
-            data-aos-duration="1000">
-            <i class="display-1  pt-3 fa-brands fa-git-alt"></i>
-            <p className="fs-3 fw-bold ">Git</p>
-          </div>
-          <div
-            class="box github col-sm-12 col-md-5 col-lg-3 rounded-4 shadow m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="500"
-            data-aos-duration="1000">
-            <i class="display-1  pt-3 fa-brands fa-github"></i>
-            <p className="fs-3 fw-bold ">Github</p>
-          </div>
-          <div
-            class="box react col-sm-12 col-md-5 col-lg-3 rounded-4 shadow m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="0"
-            data-aos-duration="1000">
-            <i class="display-1  pt-3 fa-brands fa-react"></i>
-            <p className="fs-3 fw-bold ">React</p>
-          </div>
-          <div
-            class="box npm col-sm-12 col-md-5 col-lg-3 rounded-4 shadow  m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="100"
-            data-aos-duration="1000">
-            <i class="display-1  pt-3 fa-brands fa-npm"></i>
-            <p className="fs-3 fw-bold ">Npm/Yarn</p>
-          </div>
-          {/* <div
-            class="box node col-sm-12 col-md-5 col-lg-3 rounded-4 shadow m-3 p-3"
-            data-aos="fade-down"
-            data-aos-delay="200"
-            data-aos-duration="1000"
-            >
-            <i class="display-1  pt-3 fa-brands fa-node"></i>
-            <p className="fs-3 fw-bold ">Node js</p>
-          </div> */}
+      <div className="mt-4 container-fluid text-center">
+        <div className="row px-5">
+          {skills.map((skill, idx) => (
+            <div
+              key={idx}
+              className={`box ${skill.className} col-sm-12 col-md-5 col-lg-3 shadow rounded-4 m-3 p-3`}
+              data-aos="fade-down"
+              data-aos-delay={skill.delay}
+              data-aos-duration="1000">
+              <p className="display-1">{skill.icon}</p>
+              <p className="fs-3 fw-bold">{skill.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </>
