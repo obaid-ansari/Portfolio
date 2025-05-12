@@ -21,7 +21,7 @@ const Main = () => {
       <section id="projects" loading="lazy" className="py-5 bg-white">
         <Projects />
       </section>
-      <section id="contact" loading="lazy" className="py-5 bg-white">
+      <section id="contact" loading="lazy" className="pt-5 bg-white">
         <Contact />
       </section>
     </main>

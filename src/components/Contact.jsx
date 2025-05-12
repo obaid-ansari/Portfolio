@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Contact = () => {
@@ -9,6 +9,15 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    if (submitMessage) {
+      const timer = setTimeout(() => {
+        setSubmitMessage("");
+      }, 3000); // auto-dismiss after 4 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [submitMessage]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,131 +45,140 @@ const Contact = () => {
       href: "https://www.linkedin.com/in/obaid-ansari-a37b60278/",
       icon: "linkedin",
       label: "LinkedIn",
-      className: "btn-linkedin",
       type: "brand",
     },
     {
       href: "https://github.com/obaid-ansari",
       icon: "github",
       label: "GitHub",
-      className: "btn-github",
       type: "brand",
     },
     {
       href: "https://www.facebook.com/",
       icon: "facebook",
       label: "Facebook",
-      className: "btn-facebook",
       type: "brand",
     },
     {
       href: "https://www.instagram.com/_ansari_obaid_?igsh=MTdoNWt2dTg5MGx4bg==",
       icon: "instagram",
       label: "Instagram",
-      className: "btn-instagram",
       type: "brand",
     },
     {
       href: "mailto:ansari.ubaid.1020@gmail.com",
       icon: "envelope",
       label: "Email",
-      className: "btn-email",
       type: "solid",
     },
   ];
-
   return (
     <>
-      <h3 className="pt-5 display-5 fw-bold text-center">
-        Contact <span className="gradient">Me</span>
-      </h3>
-
-      <div className="container py-5 px-4">
-        <div className="row">
-          <div className="col-md-12 col-lg-6 col-xl-5 text-center mb-5">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-decoration-none fs-5 fw-bold btn ${link.className} rounded-4 px-3 m-3`}
-                aria-label={link.label}>
-                <i
-                  className={`fa-${
-                    link.type === "solid" ? "solid" : "brands"
-                  } fa-${link.icon} fs-3 pe-2`}></i>
-                {link.label}
-              </a>
-            ))}
+      {/* Fixed Alert at Top-Right */}
+      {submitMessage && (
+        <div
+          style={{
+            position: "fixed",
+            top: "80px",
+            right: "20px",
+            zIndex: 999900,
+            maxWidth: "400px",
+          }}>
+          <div
+            className={`alert ${
+              submitMessage.includes("successfully")
+                ? "alert-success"
+                : "alert-danger"
+            } `}
+            role="alert">
+            {submitMessage}
           </div>
+        </div>
+      )}
 
-          <div className="col-md-10 col-lg-6 col-xl-5 form rounded-4">
-            <form className="py-3 px-2" onSubmit={handleSubmit}>
-              <p className="fs-2 fw-bold text-center">Contact Me</p>
+      <div className="mb-2">
+        <h3 className="pt-5 display-5 fw-bold text-center">
+          Contact <span className="gradient">Me</span>
+        </h3>
+        <div
+          className="container px-4 py-5 d-flex justify-content-center"
+          data-aos="fade"
+          data-aos-delay="0"
+          data-aos-duration="1000"
+          data-aos-once="ture">
+          <div
+            className="row shadow col-lg-10 align-items-stretch p-2 rounded-4"
+            style={{ background: "#ba9df140" }}>
+            <div className="col-lg-4 col-12 form text-center rounded-4 p-3 d-flex justify-content-center flex-column">
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3`}
+                  aria-label={link.label}>
+                  <i
+                    className={`fa-${
+                      link.type === "solid" ? "solid" : "brands"
+                    } fa-${link.icon} fs-3 pe-2`}></i>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <div className="col-lg-8 m-lg-0 mt-4 col-12 rounded-4">
+              <form className="ps-lg-4" onSubmit={handleSubmit}>
+                <p className="fs-2 fw-bold gradient">Get in touch</p>
 
-              <label htmlFor="name" className="fw-semibold  fs-5">
-                Name:
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                required
-                className="form-control fw-semibold my-2"
-              />
+                <label htmlFor="name" className="fw-semibold fs-5">
+                  Name:
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  required
+                  className="form-control bg-light fw-semibold my-2"
+                />
 
-              <label htmlFor="email" className="fw-semibold fs-5">
-                Email:
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email Address"
-                required
-                className="form-control fw-semibold my-2"
-              />
+                <label htmlFor="email" className="fw-semibold fs-5">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your Email Address"
+                  required
+                  className="form-control bg-light fw-semibold my-2"
+                />
 
-              <label htmlFor="message" className="fw-semibold  fs-5">
-                Message:
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Write your message here..."
-                required
-                className="form-control fw-semibold my-2"></textarea>
+                <label htmlFor="message" className="fw-semibold fs-5">
+                  Message:
+                </label>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Write your message here..."
+                  required
+                  className="form-control bg-light fw-semibold my-2"></textarea>
 
-              <button
-                type="submit"
-                className="btn btn-light fs-5 fw-bold my-2 w-100"
-                disabled={isSubmitting}>
-                {isSubmitting ? "Submitting..." : "Submit"}
-              </button>
-
-              {isSubmitting && (
-                <div className="text-center">
-                  <div className="spinner-border text-light my-2" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                  </div>
-                </div>
-              )}
-
-              {submitMessage && (
-                <p className="text-center fw-semibold mt-2 m-0 ">
-                  {submitMessage}
-                </p>
-              )}
-            </form>
+                <button
+                  type="submit"
+                  className="btn form text-white fs-5 fw-bold my-2 w-100"
+                  disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

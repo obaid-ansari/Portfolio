@@ -56,12 +56,12 @@ const Skills = () => {
       icon: <FaReact />,
       delay: 0,
     },
-    {
-      name: "MongoDB",
-      className: "mongodb",
-      icon: <SiMongodb />,
-      delay: 100,
-    },
+    // {
+    //   name: "MongoDB",
+    //   className: "mongodb",
+    //   icon: <SiMongodb />,
+    //   delay: 100,
+    // },
     {
       name: "Npm/Yarn",
       className: "npm",

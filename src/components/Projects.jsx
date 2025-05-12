@@ -2,6 +2,7 @@ import React from "react";
 import Safa from "../assets/safa.webp";
 import Onleed from "../assets/onleed.webp";
 import AllProjects from "../assets/allProjects.webp";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const Projects = () => {
   return (
@@ -32,8 +33,8 @@ const Projects = () => {
               <a
                 href="https://safatour.netlify.app/"
                 target="_blank"
-                className="btn btn-dark mt-auto rounded-3 shadow  fw-bold text-decoration-none">
-                Safa Tours and Travels
+                className="btn btn-dark mt-auto rounded-3 shadow  fw-bold text-decoration-none d-flex">
+                Safa Tours and Travels <FaExternalLinkAlt className="ms-2 align-self-center"/>
               </a>
             </div>
           </div>
@@ -60,8 +61,8 @@ const Projects = () => {
               <a
                 href="https://www.onleedmedia.com/"
                 target="_blank"
-                className="btn mt-auto rounded-3 btn-dark shadow fw-bold text-decoration-none">
-                Onleeds Media
+                className="btn mt-auto rounded-3 btn-dark shadow fw-bold text-decoration-none d-flex">
+                Onleeds Media <FaExternalLinkAlt className="ms-2 align-self-center"/>
               </a>
             </div>
           </div>
@@ -86,8 +87,8 @@ const Projects = () => {
               <a
                 href="https://allprojectsinone.netlify.app/"
                 target="_blank"
-                className="btn mt-auto rounded-3 btn-dark shadow  fw-bold text-decoration-none">
-                See All Projects
+                className="btn mt-auto rounded-3 btn-dark shadow  fw-bold text-decoration-none d-flex">
+                See All Projects <FaExternalLinkAlt className="ms-2 align-self-center"/>
               </a>
             </div>
           </div>

@@ -319,7 +319,7 @@ body::-webkit-scrollbar {
 
 /* MongoDB */
 .mongodb {
-  background: linear-gradient(45deg,#00EC64,#c9f4cc, #00EC64);
+  background: linear-gradient(45deg, #00ec64, #c9f4cc, #00ec64);
   color: #03ae4b;
 }
 
@@ -368,60 +368,4 @@ body::-webkit-scrollbar {
 .form {
   color: #fff;
   background: linear-gradient(45deg, #ba9df1, #9366e7, #ba9df1);
-  transition: all 0.4s linear;
-  &:hover {
-    box-shadow: 0 12px 40px rgba(217, 83, 247, 0.2),
-      0 -12px 40px rgba(118, 73, 242, 0.2), 0 16px 80px rgba(217, 83, 247, 0.15),
-      0 -16px 80px rgba(118, 73, 242, 0.15);
-  }
-}
-
-.btn-linkedin {
-  background: linear-gradient(45deg, #0077b5, #00a0dc);
-  color: #fff;
-  transition: all 0.3s linear;
-}
-.btn-linkedin:hover {
-  color: #fff;
-  box-shadow: 0 0 15px #00a0dc;
-}
-
-.btn-github {
-  background: linear-gradient(45deg, #181717, #333);
-  color: #fff;
-  transition: all 0.3s linear;
-}
-.btn-github:hover {
-  color: #fff;
-  box-shadow: 0 0 15px #333;
-}
-
-.btn-facebook {
-  background: linear-gradient(45deg, #1877f2, #4e9cf5);
-  color: #fff;
-  transition: all 0.3s linear;
-}
-.btn-facebook:hover {
-  color: #fff;
-  box-shadow: 0 0 15px #4e9cf5;
-}
-
-.btn-instagram {
-  background: linear-gradient(45deg, #e1306c, #fd1d1d, #f77737);
-  color: #fff;
-  transition: all 0.3s linear;
-}
-.btn-instagram:hover {
-  color: #fff;
-  box-shadow: 0 0 15px #fd1d1d;
-}
-
-.btn-email {
-  background: linear-gradient(45deg, #d44638, #ff6651);
-  color: #fff;
-  transition: all 0.3s linear;
-}
-.btn-email:hover {
-  color: #fff;
-  box-shadow: 0 0 15px #ff6651;
 }

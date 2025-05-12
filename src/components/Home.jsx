@@ -32,21 +32,21 @@ const Home = () => {
   return (
     <div className="container text-center mt-5 px-3">
       <p
-        className="fw-bold fs-1 m-0"
+        className="fw-bold fs-1 my-2"
         data-aos="fade-down"
         data-aos-delay="0"
         data-aos-duration="1000">
         Welcome to my world
       </p>
       <h1
-        className="fw-bold display-4"
+        className="fw-bold display-4 my-2"
         data-aos="fade-right"
         data-aos-delay="300"
         data-aos-duration="1000">
         <span className="gradient">Obaid </span>Ansari
       </h1>
       <h2
-        className="fs-2 fw-bold"
+        className="fs-2 fw-bold my-2"
         data-aos="fade-up"
         data-aos-delay="600"
         data-aos-duration="1000">
@@ -56,7 +56,7 @@ const Home = () => {
       </h2>
 
       <div
-        className="row justify-content-center"
+        className="row justify-content-center my-3"
         data-aos="fade-up"
         data-aos-delay="900"
         data-aos-duration="1000">
@@ -111,7 +111,7 @@ const Home = () => {
         download
         href="/obaidresume.pdf"
         target="_blank"
-        class="cv-btn btn btn-lg my-4 px-3 py-2 rounded-3 bg-light text-white rounded-5 fw-bold text-decoration-none"
+        class="cv-btn btn btn-lg my-3 px-3 py-2 rounded-3 bg-light text-white rounded-5 fw-bold text-decoration-none"
         data-aos="fade-up"
         data-aos-delay="1400"
         data-aos-duration="1000">
@@ -120,7 +120,7 @@ const Home = () => {
 
       {/* Scroll Mouse Animation */}
       <div
-        className="realistic-mouse-scroll"
+        className="realistic-mouse-scroll my-3"
         data-aos="fade-up"
         data-aos-delay="1600"
         data-aos-duration="1000">
