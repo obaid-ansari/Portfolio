@@ -8,6 +8,15 @@ const app = express();
 const PORT = 5000;
 
 // Middleware
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ],
+  })
+);
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -27,7 +36,8 @@ app.post("/send", async (req, res) => {
 
     // Compose email
     const mailOptions = {
-      from: email,
+      // from: email,
+      from: `"${name}" <${process.env.EMAIL_USER}>`, // ✔ Safe, avoids spoofing
       to: process.env.EMAIL_USER, // Your Gmail to receive messages
       subject: `Contact Form Submission from ${name}`,
       text: `

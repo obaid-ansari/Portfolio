@@ -179,14 +179,10 @@ body::-webkit-scrollbar {
 
 /** About Section */
 
-#about {
-  height: auto;
-  background: linear-gradient(45deg, #ba9df1, #f3eefc, #ba9df1);
-}
-
 .img-container {
   position: relative;
   height: 400px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
   overflow: hidden;
 }
 
@@ -194,7 +190,7 @@ body::-webkit-scrollbar {
 @media (max-width: 767px) {
   .img-container {
     position: relative;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
   }
 }
@@ -261,72 +257,76 @@ body::-webkit-scrollbar {
   height: auto;
 }
 
-/* Base Box Style */
-.box {
-  transition: all 0.3s linear;
-  &:hover {
-    transform: translateY(-10px) !important;
-  }
-}
-
 /* HTML */
 .html {
-  background: linear-gradient(45deg, #ffb3a1, #ffddd4, #ffb3a1);
+  background: radial-gradient(circle, #ffddd4 30%, #ffb3a1 100%);
   color: #ff5833;
 }
 
 /* CSS */
 .css {
-  background: linear-gradient(45deg, #c5a2f7, #e9d9f5, #c5a2f7);
+  background: radial-gradient(circle, #e9d9f5 30%, #c5a2f7 100%);
   color: #6d399e;
 }
 
 /* JavaScript */
 .js {
-  background: linear-gradient(45deg, #f7e37b, #fff9d0, #f7e37b);
+  background: radial-gradient(circle, #fff9d0 30%, #f7e37b 100%);
   color: #ffe62a;
 }
 
 /* Bootstrap */
 .bootstrap {
-  background: linear-gradient(45deg, #d1a7f2, #e4d5fd, #d1a7f2);
+  background: radial-gradient(circle, #e4d5fd 30%, #d1a7f2 100%);
   color: #6e10f4;
 }
 
 /* GitHub */
 .github {
-  background: linear-gradient(45deg, #a9a9a9, #dcdcdc, #a9a9a9);
+  background: radial-gradient(circle, #dcdcdc 30%, #a9a9a9 100%);
   color: #24292e;
 }
 
 /* React */
 .react {
-  background: linear-gradient(45deg, #58c4dc, #d6f3fa, #58c4dc);
-  color: #0090b0;
+  background: radial-gradient(circle, #d6f3fa 30%, #58c4dc 100%);
+  color: #10a9cc;
 }
 
 /* Git */
 .git {
-  background: linear-gradient(45deg, #f07a56, #f1502f50, #f07a56);
+  background: radial-gradient(circle, #f1502f50 30%, #f07a56 100%);
   color: #f1502f;
 }
 
 /* Npm */
 .npm {
-  background: linear-gradient(45deg, #d3d3d3, #eee, #d3d3d3);
-  color: #f1502f;
+  background: radial-gradient(circle, #f2eaea 30%, #f9bebe 100%);
+  color: #e93916;
 }
 
 /* MongoDB */
 .mongodb {
-  background: linear-gradient(45deg, #00ec64, #c9f4cc, #00ec64);
+  background: radial-gradient(circle, #c9f4cc 30%, #00ec64 100%);
   color: #03ae4b;
 }
 
 /* Node.js */
 .node {
-  background: linear-gradient(45deg, #82e07e, #c9f4cc, #82e07e);
+  background: radial-gradient(circle, #c9f4cc 30%, #82e07e 100%);
   color: #4aaa4d;
+}
+
+/* Express.js */
+.express {
+  color: #fff;
+  background: radial-gradient(circle, #313337 30%, #010409 100%);
+}
+
+/* Tailwind CSS */
+.tailwind {
+  color: #38bdf8;
+  background: radial-gradient(circle, #bce6f8 30%, #38bdf8 100%);
 }
 
 /** Projects Section */
@@ -335,7 +335,7 @@ body::-webkit-scrollbar {
   height: auto;
 }
 
-.company-logo {
+/* .company-logo {
   height: 150px;
   width: 100%;
   object-fit: cover;
@@ -357,6 +357,14 @@ body::-webkit-scrollbar {
 
 .cards-3 {
   background: linear-gradient(45deg, #ba9df1, #f3eefc, #ba9df1);
+} */
+
+.modal-backdrop {
+  transition: all 0.3s ease-in-out;
+}
+
+.card {
+  transition: transform 0.3s ease-in-out;
 }
 
 /** Contact Section */

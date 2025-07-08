@@ -12,16 +12,31 @@ const Main = () => {
       <section id="home">
         <Home />
       </section>
-      <section id="about" className="py-5">
+      <section
+        id="about"
+        className="py-5"
+        style={{ backgroundColor: "#f2ebfd" }}>
         <About />
       </section>
-      <section id="skills" loading="lazy" className="pt-5 bg-white">
+      <section
+        id="skills"
+        loading="lazy"
+        className="pt-5"
+        style={{ backgroundColor: "#f2ebfd" }}>
         <Skills />
       </section>
-      <section id="projects" loading="lazy" className="py-5 bg-white">
+      <section
+        id="projects"
+        loading="lazy"
+        className="py-5"
+        style={{ backgroundColor: "#f2ebfd" }}>
         <Projects />
       </section>
-      <section id="contact" loading="lazy" className="pt-5 bg-white">
+      <section
+        id="contact"
+        loading="lazy"
+        className="pt-5"
+        style={{ backgroundColor: "#f2ebfd" }}>
         <Contact />
       </section>
     </main>

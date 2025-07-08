@@ -30,7 +30,7 @@ const Contact = () => {
     setSubmitMessage("");
 
     try {
-      await axios.post("https://porffolio-backend.onrender.com/send", formData);
+      await axios.post("http://localhost:5000/send", formData);
       setSubmitMessage("Form submitted successfully. ✅");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
@@ -96,8 +96,10 @@ const Contact = () => {
         </div>
       )}
 
-      <div className="mb-2">
-        <h3 className="pt-5 display-5 fw-bold text-center">
+      <div className="pb-2">
+        <h3
+          className="pt-5 display-5 fw-bold text-center"
+          style={{ color: "#1f2937" }}>
           Contact <span className="gradient">Me</span>
         </h3>
         <div
@@ -117,6 +119,7 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3`}
+                  style={{ color: "#1f2937" }}
                   aria-label={link.label}>
                   <i
                     className={`fa-${
@@ -127,7 +130,10 @@ const Contact = () => {
               ))}
             </div>
             <div className="col-lg-8 m-lg-0 mt-4 col-12 rounded-4">
-              <form className="ps-lg-4" onSubmit={handleSubmit}>
+              <form
+                className="ps-lg-4"
+                style={{ color: "#1f2937" }}
+                onSubmit={handleSubmit}>
                 <p className="fs-2 fw-bold gradient">Get in touch</p>
 
                 <label htmlFor="name" className="fw-semibold fs-5">

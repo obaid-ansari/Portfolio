@@ -10,88 +10,95 @@ import {
   FaNpm,
   FaNode,
 } from "react-icons/fa";
-import { SiMongodb } from "react-icons/si";
+import { SiMongodb, SiExpress } from "react-icons/si";
+import { RiTailwindCssFill } from "react-icons/ri";
 
 const Skills = () => {
   const skills = [
-    {
-      name: "HTML",
-      className: "html",
-      icon: <FaHtml5 />,
-      delay: 0,
-    },
-    {
-      name: "CSS",
-      className: "css",
-      icon: <FaCss3Alt />,
-      delay: 100,
-    },
-    {
-      name: "Javascript",
-      className: "js",
-      icon: <FaJs />,
-      delay: 200,
-    },
+    { name: "HTML", icon: <FaHtml5 />, delay: 0, classForEach: "html" },
+    { name: "CSS", icon: <FaCss3Alt />, delay: 100, classForEach: "css" },
+    { name: "Javascript", icon: <FaJs />, delay: 200, classForEach: "js" },
     {
       name: "Bootstrap",
-      className: "bootstrap",
       icon: <FaBootstrap />,
       delay: 0,
+      classForEach: "bootstrap",
     },
+    { name: "Git", icon: <FaGitAlt />, delay: 100, classForEach: "git" },
+    { name: "Github", icon: <FaGithub />, delay: 200, classForEach: "github" },
+    { name: "React", icon: <FaReact />, delay: 0, classForEach: "react" },
     {
-      name: "Git",
-      className: "git",
-      icon: <FaGitAlt />,
+      name: "MongoDB",
+      icon: <SiMongodb />,
       delay: 100,
+      classForEach: "mongodb",
     },
+    { name: "Npm/Yarn", icon: <FaNpm />, delay: 200, classForEach: "npm" },
     {
-      name: "Github",
-      className: "github",
-      icon: <FaGithub />,
-      delay: 200,
-    },
-    {
-      name: "React",
-      className: "react",
-      icon: <FaReact />,
+      name: "Tailwind CSS",
+      icon: <RiTailwindCssFill />,
       delay: 0,
+      classForEach: "tailwind",
     },
-    // {
-    //   name: "MongoDB",
-    //   className: "mongodb",
-    //   icon: <SiMongodb />,
-    //   delay: 100,
-    // },
+    { name: "Node js", icon: <FaNode />, delay: 0, classForEach: "node" },
     {
-      name: "Npm/Yarn",
-      className: "npm",
-      icon: <FaNpm />,
-      delay: 200,
+      name: "Express js",
+      icon: <SiExpress />,
+      delay: 100,
+      classForEach: "express",
     },
-    // {
-    //   name: "Node js",
-    //   className: "node",
-    //   icon: <FaNode />,
-    //   delay: 0,
-    // },
   ];
+
+  const getBoxStyle = (idx) => {
+    const growStyle = { flexGrow: 1, minWidth: "18%" };
+    const fixedStyle = (width) => ({ width });
+
+    // Special: make only 4th box (idx === 3) flex-grow
+    if (idx === 3) return growStyle;
+
+    switch (idx + 1) {
+      case 1:
+      case 6:
+      case 7:
+      case 12:
+        return fixedStyle("40%");
+      case 2:
+      case 5:
+      case 8:
+      case 11:
+        return fixedStyle("30%");
+      case 3:
+      case 9:
+      case 10:
+        return growStyle;
+      case 4:
+        return fixedStyle("25%");
+      default:
+        return fixedStyle("20%");
+    }
+  };
 
   return (
     <>
-      <h3 className="pt-5 display-5 fw-bold text-center">
+      <h3
+        className="pt-5 display-5 fw-bold text-center"
+        style={{ color: "#1f2937" }}>
         My <span className="gradient">Skills</span>
       </h3>
-      <div className="mt-4 container-fluid text-center">
-        <div className="row px-5">
+
+      <div className="container-fluid mt-5">
+        <div className="d-flex flex-wrap gap-3 row-gap-4 container px-lg-5">
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className={`box ${skill.className} col-sm-12 col-md-5 col-lg-3 shadow rounded-4 m-3 p-3`}
-              data-aos="fade-down"
+              className={` ${skill.classForEach} d-flex justify-content-center align-items-center text-center rounded-4`}
+              style={{ height: "200px", ...getBoxStyle(idx) }}
+              data-aos="zoom-out"
               data-aos-delay={skill.delay}
-              data-aos-duration="1000">
-              <p className="display-1">{skill.icon}</p>
-              <p className="fs-3 fw-bold">{skill.name}</p>
+              data-aos-duration="1000"
+              data-aos-once="true">
+              <div className="display-1 pb-3">{skill.icon}</div>
+              {/* <div className="fs-5">{skill.name}</div> */}
             </div>
           ))}
         </div>
