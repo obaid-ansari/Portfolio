@@ -1,73 +1,129 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../css/Header.css";
 
 const Header = () => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isToggled, setIsToggled] = useState(false);
   const navRef = useRef(null);
 
-  // Close navbar on outside click
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        navRef.current &&
-        !navRef.current.contains(event.target) &&
-        !event.target.classList.contains("navbar-toggler")
-      ) {
-        setIsCollapsed(true);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  // Toggle collapse on button click
-  const toggleNavbar = () => {
-    setIsCollapsed((prev) => !prev);
+  const handleOutsideClick = (event) => {
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      setIsToggled(false);
+      removeBlur();
+    }
   };
 
-  // Collapse on link click
-  const closeNavbar = () => {
-    setIsCollapsed(true);
+  useEffect(() => {
+    if (isToggled) {
+      document.addEventListener("click", handleOutsideClick);
+    } else {
+      document.removeEventListener("click", handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [isToggled]);
+
+  const blurrybg = () => {
+    const nav = document.querySelector(".navbar");
+    let nextElements = nav ? nav.nextElementSibling : null;
+    while (nextElements) {
+      // nextElements.style.filter = "blur(10px)";
+      nextElements = nextElements.nextElementSibling;
+    }
+  };
+
+  const removeBlur = () => {
+    const nav = document.querySelector(".navbar");
+    let nextElements = nav ? nav.nextElementSibling : null;
+    while (nextElements) {
+      nextElements.style.filter = "none";
+      nextElements = nextElements.nextElementSibling;
+    }
   };
 
   return (
-    <header>
-      <nav
-        className="navbar shadow navbar-expand-lg bg-white w-100"
-        ref={navRef}>
-        <div className="container px-3">
-          <a className="nav-brand fs-1 gradient">Obaid Ansari</a>
-          <button
-            className="navbar-toggler text-white border border-white"
-            type="button"
-            onClick={toggleNavbar}
-            aria-expanded={!isCollapsed}
-            aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
+    <nav
+      id="nav"
+      className="navbar navbar-expand-lg w-100 py-3 px-2"
+      style={{
+        backdropFilter: "blur(20px)",
+        backgroundColor: "hsla(0, 0%, 0%, 0.85)",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+      }}
+      data-bs-theme="dark"
+      ref={navRef}
+      data-aos="fade"
+      data-aos-delay="0"
+      data-aos-duration="1000"
+      data-aos-once="true">
+      <div className="container d-flex align-items-center justify-content-between">
+        {/* Logo Left */}
+        <a href="/" className="nav-brand gradient fs-2">
+          Obaid Ansari
+        </a>
 
-          <div
-            className={`collapse navbar-collapse ${!isCollapsed ? "show" : ""}`}
-            id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto text-center mb-0 mb-lg-0">
-              {["home", "about", "skills", "projects", "contact"].map(
-                (section) => (
-                  <li className="nav-item" key={section}>
-                    <a
-                      className="nav-link fs-5 px-3"
-                      href={`#${section}`}
-                      onClick={closeNavbar}>
-                      {section.charAt(0).toUpperCase() + section.slice(1)}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
+        {/* Toggler for mobile */}
+        <button
+          className="d-lg-none border border-black rounded-1"
+          type="button"
+          onClick={() => {
+            setIsToggled(!isToggled);
+            isToggled ? removeBlur() : blurrybg();
+          }}>
+          <span className="navbar-toggler-icon  fs-4 bg-black rounded-1"></span>
+        </button>
+
+        {/* Center Nav Links */}
+        <div
+          className={`collapse navbar-collapse justify-content-center ${
+            isToggled ? "show" : ""
+          }`}>
+          <ul
+            className="navbar-nav mb-2 mb-lg-0"
+            onClick={(e) => {
+              if (!e.target.closest(".dropdown")) setIsToggled(false);
+            }}>
+            {["home", "about", "skills", "projects"].map((section) => (
+              <li className="nav-item" key={section}>
+                <a
+                  className="nav-link fs-4 mx-2 text-center"
+                  href={`#${section}`}
+                  onClick={removeBlur}>
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
+              </li>
+            ))}
+
+            {/* CTA Button (Visible on small screens) */}
+            <li className="nav-item d-block d-lg-none text-center mt-2">
+              <a
+                href="#contact"
+                className="gradient-btn w-100 text-center text-decoration-none fw-semibold fs-5 p-1 px-3 rounded-3"
+                onClick={removeBlur}>
+                Contact
+              </a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
+
+        {/* CTA Button (Visible on large screens) */}
+        <div className="d-none d-lg-block ms-auto">
+          {/* <a
+            href="#contact"
+            className="btn btn-light fw-semibold fs-5 p-1 px-3 rounded-3"
+            onClick={removeBlur}>
+            Contact
+          </a> */}
+          <a
+            href="#contact"
+            className="gradient-btn w-100 text-center text-decoration-none fw-semibold fs-5 py-1 px-3 rounded-3"
+            onClick={removeBlur}>
+            Contact
+          </a>
+        </div>
+      </div>
+    </nav>
   );
 };
 

@@ -1,135 +1,128 @@
 import React, { useState, useEffect } from "react";
+import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
-const Home = () => {
-  const words = ["Front-end Developer", "React Developer", "Web Developer"];
-  const [text, setText] = useState("");
-  const [wordIdx, setWordIdx] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+const roles = ["A Web Developer", "A React Developer", "A Front-end Developer"];
+
+const Hero = () => {
+  const [index, setIndex] = useState(0);
+  const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
-    const currentWord = words[wordIdx];
-    const fullText = currentWord;
-    const typingSpeed = isDeleting ? 50 : 100;
+    const interval = setInterval(() => {
+      setAnimationKey((prev) => prev + 1);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % roles.length);
+      }, 400);
+    }, 3000);
 
-    const timer = setTimeout(() => {
-      if (!isDeleting && text.length < fullText.length) {
-        setText(fullText.substring(0, text.length + 1));
-      } else if (isDeleting && text.length) {
-        setText(fullText.substring(0, text.length - 1));
-      } else {
-        if (!isDeleting) {
-          setTimeout(() => setIsDeleting(true), 1000);
-        } else {
-          setIsDeleting(false);
-          setWordIdx((prev) => (prev + 1) % words.length);
-        }
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, wordIdx]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="container text-center mt-5 px-3">
-      <p
-        className="fw-bold fs-1 my-2"
-        data-aos="fade-down"
-        data-aos-delay="0"
-        data-aos-duration="1000">
-        Welcome to my world
-      </p>
+    <div className="container text-white mt-5 d-flex flex-column align-items-center justify-content-center min-vh-100">
+      {/* Heading */}
       <h1
-        className="fw-bold display-4 my-2"
-        data-aos="fade-right"
-        data-aos-delay="300"
-        data-aos-duration="1000">
-        <span className="gradient">Obaid </span>Ansari
+        className="display-4 fw-light gradient mb-4"
+        style={{ display: "inline" }}
+        data-aos="fade"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+        data-aos-once="true">
+        Obaid Ansari
       </h1>
+
+      {/* Dynamic Role */}
       <h2
-        className="fs-2 fw-bold my-2"
-        data-aos="fade-up"
-        data-aos-delay="600"
-        data-aos-duration="1000">
-        <span>I'm a </span>
-        <span className="gradient">{text}</span>
-        <span className="blink">|</span>
+        className="fs-1 fw-light mb-4"
+        data-aos="fade"
+        data-aos-delay="400"
+        data-aos-duration="1000"
+        data-aos-once="true">
+        <span key={animationKey} className="fade-up-text">
+          {roles[index]}
+        </span>
       </h2>
 
+      {/* Description */}
+      <p
+        className="display-6 fst-italic text-center fw-bold mb-4"
+        data-aos="fade"
+        data-aos-delay="600"
+        data-aos-duration="1000"
+        data-aos-once="true">
+        I build responsive, user-friendly websites and turn ideas into seamless
+        digital experiences.
+      </p>
+
+      {/* Action Buttons */}
       <div
-        className="row justify-content-center my-3"
-        data-aos="fade-up"
-        data-aos-delay="900"
-        data-aos-duration="1000">
-        <div className="col-12 col-lg-6">
-          <p className="fw-semibold mt-2 px-2">
-            BSc IT student specializing in web development. Skilled in HTML,
-            CSS, JavaScript, React.js, and Bootstrap. I build responsive,
-            functional websites optimized for users and businesses.
-          </p>
+        data-aos="fade"
+        data-aos-delay="800"
+        data-aos-duration="1000"
+        data-aos-once="true">
+        <a
+          href="./public/obaidresume.pdf"
+          download
+          className="btn px-4 fs-5 rounded-4 shadow m-3 fw-semibold btn-light">
+          Download CV
+        </a>
+        <a
+          href="#projects"
+          className="d-none d-sm-inline-block btn btn-outline-light fs-5 rounded-4 shadow m-3 fw-bold">
+          My Work
+        </a>
+      </div>
+
+      {/* Social Links Grid */}
+      <div
+        className="row w-100 mt-4"
+        data-aos="fade"
+        data-aos-delay="1000"
+        data-aos-duration="1000"
+        data-aos-once="true">
+        {/* Facebook */}
+        <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <a
+            href="https://www.facebook.com/obaidansari01/"
+            className="d-flex flex-column align-items-center justify-content-center text-white text-decoration-none">
+            <FaFacebookSquare size={32} />
+            <span className="fw-bold fs-4 mt-2">Facebook</span>
+          </a>
         </div>
-      </div>
 
-      <div
-        className="social text-center my-3"
-        data-aos="fade-right"
-        data-aos-delay="1200"
-        data-aos-duration="1000">
-        <a
-          href="https://www.linkedin.com/in/obaid-ansari-a37b60278/"
-          target="_blank"
-          className="icon-circle fs-4 linkedin">
-          <i className="fa-brands fa-linkedin"></i>
-        </a>
-        <a
-          href="https://github.com/obaid-ansari"
-          target="_blank"
-          className="icon-circle fs-4"
-          id="github">
-          <i className="fa-brands fa-github"></i>
-        </a>
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          className="icon-circle fs-4 facebook">
-          <i className="fa-brands fa-facebook"></i>
-        </a>
-        <a
-          href="https://www.instagram.com/_ansari_obaid_?igsh=MTdoNWt2dTg5MGx4bg=="
-          target="_blank"
-          className="icon-circle fs-4 instagram">
-          <i className="fa-brands fa-instagram"></i>
-        </a>
-        <a
-          href="mailto:ansari.ubaid.1020@gmail.com"
-          target="_blank"
-          className="icon-circle fs-4 email">
-          <i className="fa-solid fa-envelope"></i>
-        </a>
-      </div>
+        {/* GitHub */}
+        <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <a
+            href="https://github.com/obaid-ansari"
+            className="d-flex flex-column align-items-center justify-content-center text-white text-decoration-none">
+            <FaGithub size={32} />
+            <span className="fw-bold fs-4 mt-2">GitHub</span>
+          </a>
+        </div>
 
-      <a
-        download
-        href="/obaidresume.pdf"
-        target="_blank"
-        class="cv-btn btn btn-lg my-3 px-3 py-2 rounded-3 bg-light text-white rounded-5 fw-bold text-decoration-none"
-        data-aos="fade-up"
-        data-aos-delay="1400"
-        data-aos-duration="1000">
-        Resume
-      </a>
+        {/* LinkedIn */}
+        <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <a
+            href="https://www.linkedin.com/in/obaid-ansari-a37b60278/"
+            className="d-flex flex-column align-items-center justify-content-center text-white text-decoration-none">
+            <FaLinkedin size={32} />
+            <span className="fw-bold fs-4 mt-2">LinkedIn</span>
+          </a>
+        </div>
 
-      {/* Scroll Mouse Animation */}
-      <div
-        className="realistic-mouse-scroll my-3"
-        data-aos="fade-up"
-        data-aos-delay="1600"
-        data-aos-duration="1000">
-        <div className="mouse">
-          <div className="wheel"></div>
+        {/* Gmail */}
+        <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <a
+            href="mailto:ansari.ubaid.1020@gmail.com"
+            className="d-flex flex-column align-items-center justify-content-center text-white text-decoration-none">
+            <SiGmail size={32} />
+            <span className="fw-bold fs-4 mt-2">Mail</span>
+          </a>
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Hero;

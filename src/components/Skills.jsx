@@ -82,7 +82,7 @@ const Skills = () => {
     <>
       <h3
         className="pt-5 display-5 fw-bold text-center"
-        style={{ color: "#1f2937" }}>
+        style={{ color: "#f5f4ed" }}>
         My <span className="gradient">Skills</span>
       </h3>
 
@@ -93,7 +93,7 @@ const Skills = () => {
               key={idx}
               className={` ${skill.classForEach} d-flex justify-content-center align-items-center text-center rounded-4`}
               style={{ height: "200px", ...getBoxStyle(idx) }}
-              data-aos="zoom-out"
+              data-aos="fade"
               data-aos-delay={skill.delay}
               data-aos-duration="1000"
               data-aos-once="true">

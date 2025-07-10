@@ -24,128 +24,51 @@ body::-webkit-scrollbar {
 /** Home Section */
 #home {
   position: relative;
-  background: url("../assets/herosection2.webp") no-repeat center center fixed;
+  background: url("../assets/bgvVideo.webp") no-repeat center center;
   background-size: cover;
   height: 100vh;
-  display: grid;
-  place-content: center;
-  color: black;
   overflow: hidden;
 }
 
-/* Add a pseudo-element for the glass effect overlay */
-#home::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(-45deg, #ba9df150, #f3eefcd6, #ba9df150);
-  backdrop-filter: blur(5px);
-  z-index: 0;
+.fade-up-text {
+  display: inline-block;
+  animation: fadeUpInOut 0.8s linear;
+  font-weight: 700;
+  text-shadow: 2px 2px 3px white;
+  opacity: 0.9;
 }
 
-/* Push your content above the glass layer */
-#home > * {
-  position: relative;
-  z-index: 1;
-}
-
-.blink {
-  animation: blink 0.7s infinite;
-  color: #da53f7;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
+/* Combined fade out & in upward animation */
+@keyframes fadeUpInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
   50% {
     opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.icon-circle {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 45px;
-  height: 45px;
-  margin: 0px 5px;
-  color: white;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  text-decoration: none;
-  transition: all 0.3s linear;
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-.linkedin {
-  background-color: #0077b5;
-  color: #fff;
-  transition: all 0.3s linear;
-
-  &:hover {
-    filter: drop-shadow(0px 0px 10px #0077b5);
-  }
-}
-
-#github {
-  background-color: #181717;
-  color: #fff;
-  transition: all 0.3s linear;
-
-  &:hover {
-    filter: drop-shadow(0px 0px 10px #181717);
-  }
-}
-
-.facebook {
-  background-color: #1877f2;
-  color: #fff;
-  transition: all 0.3s linear;
-
-  &:hover {
-    filter: drop-shadow(0px 0px 10px #1877f2);
-  }
-}
-
-.instagram {
-  background-color: #e1306c;
-  color: #fff;
-  transition: all 0.3s linear;
-
-  &:hover {
-    filter: drop-shadow(0px 0px 10px #e1306c);
-  }
-}
-
-.email {
-  background-color: #d44638;
-  color: #fff;
-  transition: all 0.3s linear;
-
-  &:hover {
-    filter: drop-shadow(0px 0px 10px #d44638);
-  }
-}
-
-.realistic-mouse-scroll {
+/* .realistic-mouse-scroll {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.mouse {
+/* .mouse {
   width: 35px;
   height: 50px;
   border: 2px solid #222;
   border-radius: 25px;
   position: relative;
-}
+} */
 
-.wheel {
+/* .wheel {
   width: 5px;
   height: 8px;
   background-color: #222;
@@ -155,9 +78,9 @@ body::-webkit-scrollbar {
   left: 50%;
   transform: translateX(-50%);
   animation: wheel-scroll 1.5s infinite ease-in-out;
-}
+} */
 
-@keyframes wheel-scroll {
+/* @keyframes wheel-scroll {
   0% {
     transform: translateX(-50%) translateY(0);
     opacity: 0.8;
@@ -170,12 +93,7 @@ body::-webkit-scrollbar {
     transform: translateX(-50%) translateY(15px);
     opacity: 0;
   }
-}
-
-.cv-btn {
-  background: linear-gradient(to right, #7549f2, #da53f7);
-  filter: drop-shadow(0 0 10px hsl(256, 87%, 62%));
-}
+} */
 
 /** About Section */
 
@@ -295,7 +213,7 @@ body::-webkit-scrollbar {
 
 /* Git */
 .git {
-  background: radial-gradient(circle, #f1502f50 30%, #f07a56 100%);
+  background: radial-gradient(circle, #fdb8a3 30%, #f07a56 100%);
   color: #f1502f;
 }
 
@@ -334,30 +252,6 @@ body::-webkit-scrollbar {
 #projects {
   height: auto;
 }
-
-/* .company-logo {
-  height: 150px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cards-1 {
-  background: linear-gradient(45deg, #e1d0a5, #f5f0df, #e1d0a5);
-}
-
-.cards-2 {
-  background: linear-gradient(45deg, #f0e636, #fdf6a4, #f0e636);
-}
-
-.cards-3 {
-  background: linear-gradient(45deg, #ba9df1, #f3eefc, #ba9df1);
-} */
 
 .modal-backdrop {
   transition: all 0.3s ease-in-out;

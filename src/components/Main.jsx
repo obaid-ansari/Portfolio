@@ -15,28 +15,28 @@ const Main = () => {
       <section
         id="about"
         className="py-5"
-        style={{ backgroundColor: "#f2ebfd" }}>
+        style={{ backgroundColor: "#101011" }}>
         <About />
       </section>
       <section
         id="skills"
         loading="lazy"
         className="pt-5"
-        style={{ backgroundColor: "#f2ebfd" }}>
+        style={{ backgroundColor: "#101011" }}>
         <Skills />
       </section>
       <section
         id="projects"
         loading="lazy"
         className="py-5"
-        style={{ backgroundColor: "#f2ebfd" }}>
+        style={{ backgroundColor: "#101011" }}>
         <Projects />
       </section>
       <section
         id="contact"
         loading="lazy"
         className="pt-5"
-        style={{ backgroundColor: "#f2ebfd" }}>
+        style={{ backgroundColor: "#101011" }}>
         <Contact />
       </section>
     </main>

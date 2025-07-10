@@ -6,8 +6,8 @@ const Footer = () => {
     <footer>
       <div
         className="text-center border-top border-secondary"
-        style={{ backgroundColor: "#fff" }}>
-        <p className="fw-semibold m-0 py-3" style={{ color: "#1f2937" }}>
+        style={{ backgroundColor: "#101011" }}>
+        <p className="fw-semibold m-0 py-3" style={{ color: "#f5f4ed" }}>
           &copy; 2025 Obaid Ansari. All rights reserved.
         </p>
       </div>

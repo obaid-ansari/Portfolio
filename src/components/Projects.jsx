@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import SafaS from "../assets/safaS.webp";
-import OnleedS from "../assets/onleedS.webp";
-import AllprojectS from "../assets/AllProjectSmall.webp";
 import SafaL from "../assets/safaL.webp";
-import OnleedL from "../assets/onleedL.webp";
+import AllprojectS from "../assets/AllProjectSmall.webp";
 import AllprojectL from "../assets/AllProjectSmall.webp";
+import KrewlanxL from "../assets/KrewlanxL.webp";
+import KrewlanxS from "../assets/KrewlanxS.webp";
 import { FaLink } from "react-icons/fa6";
 import "../css/Main.css";
 
@@ -17,16 +17,16 @@ const projects = [
     Simage: SafaS,
     Limage: SafaL,
     link: "https://safatour.netlify.app/",
-    colorText: "#291f06",
+    colorText: "#101011",
   },
   {
-    id: "onleed",
-    title: "Onleed Media",
-    desc: "Onleed Media is a digital marketing agency specializing in sales optimization, targeted ads (Google, Meta, LinkedIn), and website development. We help businesses grow online with innovative strategies.",
-    Simage: OnleedS,
-    Limage: OnleedL,
-    link: "https://www.onleedmedia.com/",
-    colorText: "#000",
+    id: "krewlanx",
+    title: "Krewlanx Tech",
+    desc: "Krewlanx Tech offers web development, UI/UX design, and digital growth solutions. Our goal is to deliver clean, user first technology that works and scales.",
+    Simage: KrewlanxS,
+    Limage: KrewlanxL,
+    link: "https://www.krewlanxtech.me/",
+    colorText: "#101011",
   },
   {
     id: "all",
@@ -35,7 +35,7 @@ const projects = [
     Simage: AllprojectS,
     Limage: AllprojectL,
     link: "https://allprojectsinone.netlify.app/",
-    colorText: "#000",
+    colorText: "#101011",
   },
 ];
 
@@ -52,7 +52,9 @@ const Projects = () => {
 
   return (
     <div className="projects-section container py-5">
-      <h2 className="text-center mb-4 fw-bold display-5">
+      <h2
+        className="text-center mb-4 fw-bold display-5"
+        style={{ color: "#f5f4ed" }}>
         My <span className="gradient">Projects</span>
       </h2>
 
@@ -130,7 +132,7 @@ const Projects = () => {
                 style={{
                   width: "90%",
                   maxWidth: "600px",
-                  background: "#222",
+                  background: "#101011",
                   willChange: "transform, opacity",
                   transform: "translateZ(0)",
                 }}>

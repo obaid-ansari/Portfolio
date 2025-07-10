@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import {
+  FaFacebookSquare,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState("");
@@ -43,31 +50,31 @@ const Contact = () => {
   const socialLinks = [
     {
       href: "https://www.linkedin.com/in/obaid-ansari-a37b60278/",
-      icon: "linkedin",
+      icon: <FaLinkedin size={32} className="pe-2" />,
       label: "LinkedIn",
       type: "brand",
     },
     {
       href: "https://github.com/obaid-ansari",
-      icon: "github",
+      icon: <FaGithub size={32} className="pe-2" />,
       label: "GitHub",
       type: "brand",
     },
     {
-      href: "https://www.facebook.com/",
-      icon: "facebook",
+      href: "https://www.facebook.com/obaidansari01//",
+      icon: <FaFacebookSquare size={32} className="pe-2" />,
       label: "Facebook",
       type: "brand",
     },
     {
       href: "https://www.instagram.com/_ansari_obaid_?igsh=MTdoNWt2dTg5MGx4bg==",
-      icon: "instagram",
+      icon: <FaInstagram size={32} className="pe-2" />,
       label: "Instagram",
       type: "brand",
     },
     {
       href: "mailto:ansari.ubaid.1020@gmail.com",
-      icon: "envelope",
+      icon: <SiGmail size={32} className="pe-2" />,
       label: "Email",
       type: "solid",
     },
@@ -99,7 +106,7 @@ const Contact = () => {
       <div className="pb-2">
         <h3
           className="pt-5 display-5 fw-bold text-center"
-          style={{ color: "#1f2937" }}>
+          style={{ color: "#f5f4ed" }}>
           Contact <span className="gradient">Me</span>
         </h3>
         <div
@@ -110,7 +117,7 @@ const Contact = () => {
           data-aos-once="ture">
           <div
             className="row shadow col-lg-10 align-items-stretch p-2 rounded-4"
-            style={{ background: "#ba9df140" }}>
+            style={{ background: "#ba9df159" }}>
             <div className="col-lg-4 col-12 form text-center rounded-4 p-3 d-flex justify-content-center flex-column">
               {socialLinks.map((link, index) => (
                 <a
@@ -118,13 +125,10 @@ const Contact = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3`}
-                  style={{ color: "#1f2937" }}
+                  className={`text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3 d-flex justify-content-center align-items-center`}
+                  style={{ color: "#101011" }}
                   aria-label={link.label}>
-                  <i
-                    className={`fa-${
-                      link.type === "solid" ? "solid" : "brands"
-                    } fa-${link.icon} fs-3 pe-2`}></i>
+                  {link.icon}
                   {link.label}
                 </a>
               ))}
@@ -132,7 +136,7 @@ const Contact = () => {
             <div className="col-lg-8 m-lg-0 mt-4 col-12 rounded-4">
               <form
                 className="ps-lg-4"
-                style={{ color: "#1f2937" }}
+                style={{ color: "#f5f4ed" }}
                 onSubmit={handleSubmit}>
                 <p className="fs-2 fw-bold gradient">Get in touch</p>
 
