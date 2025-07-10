@@ -34,8 +34,7 @@ body::-webkit-scrollbar {
   display: inline-block;
   animation: fadeUpInOut 0.8s linear;
   font-weight: 700;
-  text-shadow: 2px 2px 3px white;
-  opacity: 0.9;
+  text-shadow: 1px 1px 2px white;
 }
 
 /* Combined fade out & in upward animation */

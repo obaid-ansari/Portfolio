@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import resume from "/public/obaidresume.pdf";
 
 const roles = ["A Web Developer", "A React Developer", "A Front-end Developer"];
 
@@ -26,7 +27,7 @@ const Hero = () => {
         className="display-4 fw-light gradient mb-4"
         style={{ display: "inline" }}
         data-aos="fade"
-        data-aos-delay="200"
+        data-aos-delay="100"
         data-aos-duration="1000"
         data-aos-once="true">
         Obaid Ansari
@@ -36,7 +37,7 @@ const Hero = () => {
       <h2
         className="fs-1 fw-light mb-4"
         data-aos="fade"
-        data-aos-delay="400"
+        data-aos-delay="200"
         data-aos-duration="1000"
         data-aos-once="true">
         <span key={animationKey} className="fade-up-text">
@@ -46,9 +47,9 @@ const Hero = () => {
 
       {/* Description */}
       <p
-        className="display-6 fst-italic text-center fw-bold mb-4"
+        className="display-6 fst-italic text-center fw-bolder mb-4"
         data-aos="fade"
-        data-aos-delay="600"
+        data-aos-delay="300"
         data-aos-duration="1000"
         data-aos-once="true">
         I build responsive, user-friendly websites and turn ideas into seamless
@@ -58,11 +59,11 @@ const Hero = () => {
       {/* Action Buttons */}
       <div
         data-aos="fade"
-        data-aos-delay="800"
+        data-aos-delay="400"
         data-aos-duration="1000"
         data-aos-once="true">
         <a
-          href="./public/obaidresume.pdf"
+          href={resume}
           download
           className="btn px-4 fs-5 rounded-4 shadow m-3 fw-semibold btn-light">
           Download CV
@@ -78,7 +79,7 @@ const Hero = () => {
       <div
         className="row w-100 mt-4"
         data-aos="fade"
-        data-aos-delay="1000"
+        data-aos-delay="500"
         data-aos-duration="1000"
         data-aos-once="true">
         {/* Facebook */}
