@@ -37,7 +37,7 @@ const Contact = () => {
     setSubmitMessage("");
 
     try {
-      await axios.post("/send", formData);
+      await axios.post("https://portfolio-56fx.onrender.com/send", formData);
       setSubmitMessage("Form submitted successfully. ✅");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
