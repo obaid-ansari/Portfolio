@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+
 import { Link } from "react-router-dom";
 import "../css/Header.css";
 
@@ -48,8 +49,8 @@ const Header = () => {
       className="navbar navbar-expand-lg w-100 py-3 px-2"
       style={{
         backdropFilter: "blur(20px)",
-        backgroundColor: "hsla(0, 0%, 0%, 0.85)",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+        backgroundColor: "hsla(0, 0%, 0%, 0.3)",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
       }}
       data-bs-theme="dark"
       ref={navRef}
@@ -59,7 +60,7 @@ const Header = () => {
       data-aos-once="true">
       <div className="container d-flex align-items-center justify-content-between">
         {/* Logo Left */}
-        <a href="/" className="nav-brand gradient fs-2">
+        <a href="/" className="nav-brand gradient fs-3">
           Obaid Ansari
         </a>
 
@@ -87,7 +88,7 @@ const Header = () => {
             {["home", "about", "skills", "projects"].map((section) => (
               <li className="nav-item" key={section}>
                 <a
-                  className="nav-link fs-4 mx-2 text-center"
+                  className="nav-link fs-4 mx-2"
                   href={`#${section}`}
                   onClick={removeBlur}>
                   {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -99,7 +100,7 @@ const Header = () => {
             <li className="nav-item d-block d-lg-none text-center mt-2">
               <a
                 href="#contact"
-                className="gradient-btn w-100 text-center text-decoration-none fw-semibold fs-5 p-1 px-3 rounded-3"
+                className="gradient-btn w-100 text-center text-decoration-none fw-bold fs-5 p-1 px-3 rounded-3"
                 onClick={removeBlur}>
                 Contact
               </a>
@@ -109,15 +110,9 @@ const Header = () => {
 
         {/* CTA Button (Visible on large screens) */}
         <div className="d-none d-lg-block ms-auto">
-          {/* <a
-            href="#contact"
-            className="btn btn-light fw-semibold fs-5 p-1 px-3 rounded-3"
-            onClick={removeBlur}>
-            Contact
-          </a> */}
           <a
             href="#contact"
-            className="gradient-btn w-100 text-center text-decoration-none fw-semibold fs-5 py-1 px-3 rounded-3"
+            className="gradient-btn w-100 text-center text-decoration-none fw-bold fs-5 py-1 px-3 rounded-3"
             onClick={removeBlur}>
             Contact
           </a>

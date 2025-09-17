@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import {
   FaFacebookSquare,
   FaGithub,
@@ -11,37 +10,40 @@ import { SiGmail } from "react-icons/si";
 const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
   useEffect(() => {
     if (submitMessage) {
       const timer = setTimeout(() => {
         setSubmitMessage("");
-      }, 3000); // auto-dismiss after 4 seconds
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [submitMessage]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitMessage("");
 
+    const formDataObj = new FormData(e.target);
+    formDataObj.append("access_key", import.meta.env.VITE_WEB3FORM_KEY); // put your access key in .env
+
     try {
-      await axios.post("https://portfolio-56fx.onrender.com/send", formData);
-      setSubmitMessage("Form submitted successfully. ✅");
-      setFormData({ name: "", email: "", message: "" });
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataObj,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage("Form submitted successfully ✅");
+        e.target.reset();
+      } else {
+        setSubmitMessage("Form submission failed ❌");
+      }
     } catch (error) {
-      setSubmitMessage("Form submission failed. Please try later! ❌");
+      setSubmitMessage("Something went wrong. Try again later ❌");
     } finally {
       setIsSubmitting(false);
     }
@@ -49,36 +51,32 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      href: "https://www.linkedin.com/in/obaid-ansari-a37b60278/",
-      icon: <FaLinkedin size={32} className="pe-2" />,
+      href: "https://www.linkedin.com/in/obaid-ansari/",
+      icon: <FaLinkedin size={28} />,
       label: "LinkedIn",
-      type: "brand",
     },
     {
       href: "https://github.com/obaid-ansari",
-      icon: <FaGithub size={32} className="pe-2" />,
+      icon: <FaGithub size={28} />,
       label: "GitHub",
-      type: "brand",
     },
     {
-      href: "https://www.facebook.com/obaidansari01//",
-      icon: <FaFacebookSquare size={32} className="pe-2" />,
+      href: "https://www.facebook.com/obaidansari01/",
+      icon: <FaFacebookSquare size={28} />,
       label: "Facebook",
-      type: "brand",
     },
     {
       href: "https://www.instagram.com/_ansari_obaid_?igsh=MTdoNWt2dTg5MGx4bg==",
-      icon: <FaInstagram size={32} className="pe-2" />,
+      icon: <FaInstagram size={28} />,
       label: "Instagram",
-      type: "brand",
     },
     {
       href: "mailto:ansari.ubaid.1020@gmail.com",
-      icon: <SiGmail size={32} className="pe-2" />,
+      icon: <SiGmail size={28} />,
       label: "Email",
-      type: "solid",
     },
   ];
+
   return (
     <>
       {/* Fixed Alert at Top-Right */}
@@ -125,7 +123,7 @@ const Contact = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3 d-flex justify-content-center align-items-center`}
+                  className={`text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3 d-flex justify-content-center align-items-center gap-1`}
                   style={{ color: "#101011" }}
                   aria-label={link.label}>
                   {link.icon}
@@ -133,51 +131,51 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-            <div className="col-lg-8 m-lg-0 mt-4 col-12 rounded-4">
+            {/* Contact form */}
+            <div className="col-lg-8 mt-4 mt-lg-0">
               <form
+                onSubmit={onSubmit}
                 className="ps-lg-4"
-                style={{ color: "#f5f4ed" }}
-                onSubmit={handleSubmit}>
-                <p className="fs-2 fw-bold gradient">Get in touch</p>
+                style={{ color: "#f5f4ed" }}>
+                <p className="fs-3 fw-bold gradient">Get in touch</p>
 
-                <label htmlFor="name" className="fw-semibold fs-5">
+                {/* Hidden fields for Web3Forms customization */}
+                <input
+                  type="hidden"
+                  name="subject"
+                  value="New Portfolio Message"
+                />
+                <input type="hidden" name="replyto" value="%email%" />
+
+                <label htmlFor="name" className="fw-semibold fs-6">
                   Name:
                 </label>
                 <input
                   type="text"
                   name="name"
-                  id="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   placeholder="Your Name"
                   required
                   className="form-control bg-light fw-semibold my-2"
                 />
 
-                <label htmlFor="email" className="fw-semibold fs-5">
+                <label htmlFor="email" className="fw-semibold fs-6">
                   Email:
                 </label>
                 <input
                   type="email"
                   name="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder="Your Email Address"
                   required
                   className="form-control bg-light fw-semibold my-2"
                 />
 
-                <label htmlFor="message" className="fw-semibold fs-5">
+                <label htmlFor="message" className="fw-semibold fs-6">
                   Message:
                 </label>
                 <textarea
                   name="message"
-                  id="message"
                   rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Write your message here..."
+                  placeholder="Write your message..."
                   required
                   className="form-control bg-light fw-semibold my-2"></textarea>
 

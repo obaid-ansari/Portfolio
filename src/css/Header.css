@@ -15,29 +15,25 @@ header {
 }
 
 .nav-brand {
-  font-family: "Cookie", cursive;
+  font-family: "Playpen Sans Thai", cursive;
+  font-weight: 600;
   text-decoration: none;
 }
 
 .nav-link {
+  font-family: "Playpen Sans Thai", cursive;
   color: #fff;
   text-align: center;
-  font-weight: 300;
   transition: all 0.2s linear;
   &:hover {
-    color: #6725c4;
-    font-weight: 300;
+    color: #894be0;
   }
 }
 
 .gradient-btn {
   background: linear-gradient(to right, #7549f2, #da53f7);
   color: white;
+  font-family: "Playpen Sans Thai", cursive;
   border: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.gradient-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(105, 43, 224, 0.4);
 }

@@ -17,17 +17,19 @@ const About = () => {
               data-aos-delay="0"
               data-aos-duration="1000"
               data-aos-once="true">
-              <h4 className="fs-3 fw-bolder gradient  fst-italic">
-                Frontend & React Developer
-              </h4>
+              <span className="fs-3 fw-bolder gradient  fst-italic">
+                Frontend & MERN
+                
+                 Stack Developer
+              </span>
               <p
                 className="fw-semibold"
                 style={{ color: "#f5f4ed", fontSize: "18px" }}>
-                As a passionate Frontend and React Developer, I specialize in
-                building fast, responsive, and visually appealing websites and
-                web applications. With a solid foundation in HTML, CSS,
-                JavaScript, and modern frameworks like React.js and Bootstrap, I
-                create seamless user experiences that work across all devices.
+                As a passionate developer, I specialize in building dynamic,
+                scalable, and high-performance web applications. With expertise
+                in MongoDB, Express.js, React.js, and Node.js, I create
+                full-stack solutions that seamlessly integrate robust backends
+                with responsive, modern frontends.
               </p>
             </div>
             <div
@@ -36,15 +38,15 @@ const About = () => {
               data-aos-delay="200"
               data-aos-duration="1000"
               data-aos-once="true">
-              <h4 className="fs-4 fw-bold gradient  fst-italic">
+              <span className="fs-4 fw-bold gradient  fst-italic">
                 Web Development
-              </h4>
+              </span>
               <p
                 className="fw-semibold"
                 style={{ color: "#f5f4ed", fontSize: "18px" }}>
-                Skilled in creating responsive websites that blend performance
-                with design, focusing on clean code, accessibility, and
-                compatibility across all browsers.
+                Experienced in developing responsive websites that combine
+                performance with clean, accessible design, ensuring
+                compatibility across all browsers and devices.
               </p>
             </div>
             <div
@@ -53,15 +55,16 @@ const About = () => {
               data-aos-delay="400"
               data-aos-duration="1000"
               data-aos-once="true">
-              <h4 className="fs-4 fw-bold gradient fst-italic">
-                React Expertise
-              </h4>
+              <span className="fs-4 fw-bold gradient fst-italic">
+                MERN Expertise
+              </span>
               <p
                 className="fw-semibold"
                 style={{ color: "#f5f4ed", fontSize: "18px" }}>
-                Experienced in React.js, building scalable single-page apps with
-                reusable components, hooks, and smooth, user-focused
-                interactions.
+                Skilled in building end-to-end applications using the MERN stack
+                developing RESTful APIs, managing databases with MongoDB,
+                creating reusable React components, and deploying secure,
+                scalable solutions with Node.js and Express.js.
               </p>
             </div>
           </div>

@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import resume from "/public/obaidresume.pdf";
+import resume from "/public/obaid.pdf";
 
-const roles = ["A Web Developer", "A React Developer", "A Front-end Developer"];
+const roles = [
+  "Web Developer",
+  "MERN Stack Developer",
+  "React Developer",
+  "Frontend Developer",
+];
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
@@ -22,39 +27,28 @@ const Hero = () => {
 
   return (
     <div className="container text-white mt-5 d-flex flex-column align-items-center justify-content-center min-vh-100">
-      {/* Heading */}
+      {/* Dynamic Role */}
       <h1
-        className="display-4 fw-light gradient mb-4"
-        style={{ display: "inline" }}
+        className="display-6 fst-italic text-center fw-bold mb-4"
         data-aos="fade"
         data-aos-delay="100"
-        data-aos-duration="1000"
-        data-aos-once="true">
-        Obaid Ansari
-      </h1>
-
-      {/* Dynamic Role */}
-      <h2
-        className="fs-1 fw-light mb-4"
-        data-aos="fade"
-        data-aos-delay="200"
         data-aos-duration="1000"
         data-aos-once="true">
         <span key={animationKey} className="fade-up-text">
           {roles[index]}
         </span>
-      </h2>
+      </h1>
 
       {/* Description */}
-      <p
-        className="display-6 fst-italic text-center fw-bolder mb-4"
+      <h2
+        className="display-6 fst-italic text-center fw-bold mb-4"
         data-aos="fade"
-        data-aos-delay="300"
+        data-aos-delay="200"
         data-aos-duration="1000"
         data-aos-once="true">
         I build responsive, user-friendly websites and turn ideas into seamless
         digital experiences.
-      </p>
+      </h2>
 
       {/* Action Buttons */}
       <div
@@ -65,12 +59,12 @@ const Hero = () => {
         <a
           href={resume}
           download
-          className="btn px-4 fs-5 rounded-4 shadow m-3 fw-semibold btn-light">
+          className="btn px-3 fs-5 rounded-4 shadow m-3 fw-bold btn-light">
           Download CV
         </a>
         <a
           href="#projects"
-          className="d-none d-sm-inline-block btn btn-outline-light fs-5 rounded-4 shadow m-3 fw-bold">
+          className="d-none d-sm-inline-block btn btn-outline-light fs-5 rounded-4 m-3 fw-bold">
           My Work
         </a>
       </div>
@@ -105,7 +99,7 @@ const Hero = () => {
         {/* LinkedIn */}
         <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
           <a
-            href="https://www.linkedin.com/in/obaid-ansari-a37b60278/"
+            href="https://github.com/obaid-ansari"
             className="d-flex flex-column align-items-center justify-content-center text-white text-decoration-none">
             <FaLinkedin size={32} />
             <span className="fw-bold fs-4 mt-2">LinkedIn</span>

@@ -1,62 +1,76 @@
 import React, { useState, useEffect } from "react";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
-import SafaS from "../assets/safaS.webp";
-import SafaL from "../assets/safaL.webp";
-import AllprojectS from "../assets/AllProjectSmall.webp";
-import AllprojectL from "../assets/AllProjectSmall.webp";
-import KrewlanxL from "../assets/KrewlanxL.webp";
-import KrewlanxS from "../assets/KrewlanxS.webp";
 import { FaLink } from "react-icons/fa6";
-import "../css/Main.css";
-
+import Safa from "../assets/safa.webp";
+import Futuride from "../assets/futuride.webp";
+import Krewlnax from "../assets/Krewlanxs.webp";
+import Onleed from "../assets/onleed.webp";
+import Weather from "../assets/weatherapp.webp";
+import Curruency from "../assets/currency.webp";
 const projects = [
   {
-    id: "safa",
-    title: "Safa Tours and Travels",
-    desc: "A user-friendly platform offering flight bookings, hotel stays, visas, holiday packages, forex, and religious tours like Hajj and Umrah, with direct Gmail inquiries for easy communication.",
-    Simage: SafaS,
-    Limage: SafaL,
-    link: "https://safatour.netlify.app/",
-    colorText: "#101011",
+    id: "futuride",
+    title: "Futuride",
+    desc: "Futuride is your personalized career navigator designed to support students, freshers, and professionals looking to switch careers. It helps you explore the most suitable professions by aligning your interests, strengths, and academic background.",
+    image: Futuride,
+    link: "https://futuride.netlify.app/",
   },
   {
     id: "krewlanx",
     title: "Krewlanx Tech",
     desc: "Krewlanx Tech offers web development, UI/UX design, and digital growth solutions. Our goal is to deliver clean, user first technology that works and scales.",
-    Simage: KrewlanxS,
-    Limage: KrewlanxL,
+    image: Krewlnax,
     link: "https://www.krewlanxtech.me/",
-    colorText: "#101011",
   },
   {
-    id: "all",
-    title: "All Projects",
-    desc: "A showcase of my personal and client projects, built with modern web tech and a focus on clean design and usability.",
-    Simage: AllprojectS,
-    Limage: AllprojectL,
-    link: "https://allprojectsinone.netlify.app/",
-    colorText: "#101011",
+    id: "safa",
+    title: "Safa Tours",
+    desc: "A user-friendly platform offering flight bookings, hotel stays, visas, holiday packages, forex, and religious tours like Hajj and Umrah, with direct Gmail inquiries for easy communication.",
+    image: Safa,
+    link: "https://safatour.netlify.app/",
+  },
+  {
+    id: "Onleeds",
+    title: "Onleeds Media",
+    desc: "Founded in August 2024, Onleed Media is a digital marketing agency specializing in sales optimization, lead generation, targeted ads (Google, Meta, LinkedIn), and website development. We help businesses grow online with innovative strategies.",
+    image: Onleed,
+    link: "https://onleedmedia.com/",
+  },
+  {
+    id: "weather",
+    title: "Weather App",
+    desc: "A simple weather app created by me that shows real-time temperature, humidity, wind speed, and weather conditions of any city using live API data.",
+    image: Weather,
+    link: "https://checkweatherinfoapp.netlify.app/",
+  },
+
+  {
+    id: "Currency",
+    title: "Currency Converter",
+    desc: "A handy tool to convert between major global currencies using live exchange rates. Designed for ease of use with real-time updates and a clean UI.",
+    image: Curruency,
+    link: "https://currencyconverterp.netlify.app/",
   },
 ];
 
-const Projects = () => {
+const App = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   // 🔄 Preload large images for smoother transition
   useEffect(() => {
     projects.forEach((project) => {
       const img = new Image();
-      img.src = project.Limage;
+      img.src = project.image;
     });
   }, []);
 
   return (
-    <div className="projects-section container py-5">
-      <h2
-        className="text-center mb-4 fw-bold display-5"
+    <div className="container">
+      <h3
+        className="pt-5 display-5 fw-bold text-center"
         style={{ color: "#f5f4ed" }}>
         My <span className="gradient">Projects</span>
-      </h2>
+      </h3>
 
       <LayoutGroup>
         <motion.div className="row mt-4 justify-content-center p-2">
@@ -64,7 +78,7 @@ const Projects = () => {
             <motion.div
               layoutId={project.id}
               key={project.id}
-              className="col-12 col-md-5 col-lg-3 m-2"
+              className="col-12 col-md-5 col-lg-3 mx-1 my-3"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               onClick={() => setSelectedId(project.id)}
@@ -72,24 +86,30 @@ const Projects = () => {
               <motion.div
                 className="card shadow border-0 rounded-4"
                 style={{
-                  backgroundImage: `url(${project.Simage})`,
+                  backgroundImage: `url(${project.image})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                   overflow: "hidden",
-                  minHeight: "450px",
+                  minHeight: "350px",
                   position: "relative",
                   willChange: "transform",
                 }}
                 layoutId={`image-${project.id}`}>
                 <div
                   style={{
-                    color: project.colorText,
                     position: "absolute",
                     top: 0,
                     left: 0,
+                    height: "80px",
+                    width: "100%",
+                    background: "linear-gradient(rgba(0,0,0,0.7),transparent)",
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}>
-                  <motion.p className="fw-bold ps-3 pt-1 fs-2">
+                  <motion.p className="fw-bold ps-3 fs-3 d-flex">
                     {project.title}
                   </motion.p>
                 </div>
@@ -114,7 +134,7 @@ const Projects = () => {
                 right: 0,
                 bottom: 0,
                 background: "rgba(0, 0, 0, 0.3)",
-                backdropFilter: "blur(5px)",
+                backdropFilter: "blur(15px)",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -141,7 +161,7 @@ const Projects = () => {
                   return (
                     <>
                       <img
-                        src={project.Limage}
+                        src={project.image}
                         alt={project.title}
                         className="rounded-top-4"
                         style={{
@@ -172,4 +192,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default App;
