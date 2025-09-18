@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaFacebookSquare, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import resume from "/public/obaid.pdf";
+import resume from "/public/resume.pdf";
 
 const roles = [
   "Web Developer",
