@@ -19,7 +19,7 @@ const About = () => {
               data-aos-once="true">
               <span className="fs-3 fw-bolder gradient  fst-italic">
                 Frontend & MERN
-                
+              
                  Stack Developer
               </span>
               <p
