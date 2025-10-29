@@ -68,7 +68,8 @@ const App = () => {
     <div className="container">
       <h3
         className="pt-5 display-5 fw-bold text-center"
-        style={{ color: "#f5f4ed" }}>
+        style={{ color: "#f5f4ed" }}
+      >
         My <span className="gradient">Projects</span>
       </h3>
 
@@ -82,7 +83,8 @@ const App = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               onClick={() => setSelectedId(project.id)}
-              style={{ cursor: "pointer" }}>
+              style={{ cursor: "pointer" }}
+            >
               <motion.div
                 className="card shadow border-0 rounded-4"
                 style={{
@@ -95,7 +97,8 @@ const App = () => {
                   position: "relative",
                   willChange: "transform",
                 }}
-                layoutId={`image-${project.id}`}>
+                layoutId={`image-${project.id}`}
+              >
                 <div
                   style={{
                     position: "absolute",
@@ -108,7 +111,8 @@ const App = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                  }}>
+                  }}
+                >
                   <motion.p className="fw-bold ps-3 fs-3 d-flex">
                     {project.title}
                   </motion.p>
@@ -140,7 +144,8 @@ const App = () => {
                 alignItems: "center",
                 zIndex: 10000,
               }}
-              onClick={() => setSelectedId(null)}>
+              onClick={() => setSelectedId(null)}
+            >
               <motion.div
                 key={selectedId}
                 initial={{ opacity: 0, y: 50, scale: 0.96 }}
@@ -155,7 +160,8 @@ const App = () => {
                   background: "#101011",
                   willChange: "transform, opacity",
                   transform: "translateZ(0)",
-                }}>
+                }}
+              >
                 {(() => {
                   const project = projects.find((p) => p.id === selectedId);
                   return (
@@ -174,7 +180,8 @@ const App = () => {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="pt-3 fw-bold fs-4 px-3 d-flex align-items-center text-decoration-none text-light">
+                        className="pt-3 fw-bold fs-4 px-3 d-flex align-items-center text-decoration-none text-light"
+                      >
                         {project.title} <FaLink className="ms-2" />
                       </motion.a>
                       <motion.p className="px-3 m-0 pt-1 pb-3">
@@ -188,6 +195,15 @@ const App = () => {
           )}
         </AnimatePresence>
       </LayoutGroup>
+      <div className="d-flex justify-content-center my-4">
+        <a
+          href="https://allprojectsinone.netlify.app/"
+          target="main"
+          className="btn gradient-btn btn-lg text-white"
+        >
+          See All Projects
+        </a>
+      </div>
     </div>
   );
 };
