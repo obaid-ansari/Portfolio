@@ -249,6 +249,12 @@ h3 {
   background: radial-gradient(circle, #bce6f8 30%, #38bdf8 100%);
 }
 
+/* Redux */
+.redux {
+  color: #593d88;
+  background: radial-gradient(circle, #d7cbec 30%, #9b76dc 100%);
+}
+
 /** Projects Section */
 
 #projects {
@@ -272,4 +278,35 @@ h3 {
 .form {
   color: #fff;
   background: linear-gradient(45deg, #ba9df1, #9366e7, #ba9df1);
+}
+
+.container-skills {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  flex-wrap: wrap;
+}
+
+.item:nth-child(1),
+.item:nth-child(5),
+.item:nth-child(7),
+.item:nth-child(11) {
+  width: 40%;
+}
+
+.item:nth-child(2),
+.item:nth-child(8) {
+  width: 30%;
+}
+
+.item:nth-child(3),
+.item:nth-child(6),
+.item:nth-child(9),
+.item:nth-child(12) {
+  flex-grow: 1;
+}
+
+.item:nth-child(4),
+.item:nth-child(10) {
+  width: 25%;
 }
