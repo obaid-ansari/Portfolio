@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 import {
   FaFacebookSquare,
   FaGithub,
@@ -8,45 +9,43 @@ import {
 import { SiGmail } from "react-icons/si";
 
 const Contact = () => {
-  const [submitMessage, setSubmitMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (submitMessage) {
-      const timer = setTimeout(() => {
-        setSubmitMessage("");
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [submitMessage]);
+  const onSubmit = async (event) => {
+    event.preventDefault();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage("");
-
-    const formDataObj = new FormData(e.target);
-    formDataObj.append("access_key", import.meta.env.VITE_WEB3FORM_KEY); // put your access key in .env
+    setLoading(true);
 
     try {
+      const formData = new FormData(event.target);
+
+      formData.append("access_key", import.meta.env.VITE_WEB3FORM_KEY);
+
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formDataObj,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
       });
 
-      const result = await response.json();
+      const res = await response.json();
 
-      if (result.success) {
-        setSubmitMessage("Form submitted successfully ✅");
-        e.target.reset();
+      if (res.success) {
+        toast.success("Message sent Successfully!");
+        event.target.reset();
       } else {
-        setSubmitMessage("Form submission failed ❌");
+        toast.error(res.message || "Message not sent");
       }
     } catch (error) {
-      setSubmitMessage("Something went wrong. Try again later ❌");
-    } finally {
-      setIsSubmitting(false);
+      toast.error("Network error. Please try again.");
     }
+
+    setLoading(false);
   };
 
   const socialLinks = [
@@ -79,64 +78,35 @@ const Contact = () => {
 
   return (
     <>
-      {/* Fixed Alert at Top-Right */}
-      {submitMessage && (
-        <div
-          style={{
-            position: "fixed",
-            top: "80px",
-            right: "20px",
-            zIndex: 999900,
-            maxWidth: "400px",
-          }}>
-          <div
-            className={`alert ${
-              submitMessage.includes("successfully")
-                ? "alert-success"
-                : "alert-danger"
-            } `}
-            role="alert">
-            {submitMessage}
-          </div>
-        </div>
-      )}
-
-      <div className="pb-2">
-        <h3
-          className="pt-5 display-5 fw-bold text-center"
-          style={{ color: "#f5f4ed" }}>
-          Contact <span className="gradient">Me</span>
+      <section className="pt-4" id="contact">
+        <h3 className="pt-5 display-5 fw-bold text-center">
+          Contact <span className="gradient-text">Me</span>
         </h3>
-        <div
-          className="container px-4 py-5 d-flex justify-content-center"
-          data-aos="fade"
-          data-aos-delay="0"
-          data-aos-duration="1000"
-          data-aos-once="ture">
+
+        <div className="container px-4 py-5 d-flex justify-content-center">
           <div
             className="row shadow col-lg-10 align-items-stretch p-2 rounded-4"
-            style={{ background: "#ba9df159" }}>
+            style={{ background: "#9772fd66" }}
+          >
             <div className="col-lg-4 col-12 form text-center rounded-4 p-3 d-flex justify-content-center flex-column">
-              {socialLinks.map((link, index) => (
+              {socialLinks.map((link) => (
                 <a
-                  key={index}
+                  key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3 d-flex justify-content-center align-items-center gap-1`}
-                  style={{ color: "#101011" }}
-                  aria-label={link.label}>
+                  className="text-decoration-none fs-5 fw-bold btn btn-light rounded-4 px-3 m-3 d-flex justify-content-center align-items-center gap-1"
+                  aria-label={link.label}
+                >
                   {link.icon}
                   {link.label}
                 </a>
               ))}
             </div>
+
             {/* Contact form */}
             <div className="col-lg-8 mt-4 mt-lg-0">
-              <form
-                onSubmit={onSubmit}
-                className="ps-lg-4"
-                style={{ color: "#f5f4ed" }}>
+              <form onSubmit={onSubmit} className="ps-lg-4">
                 <p className="fs-3 fw-bold gradient">Get in touch</p>
 
                 {/* Hidden fields for Web3Forms customization */}
@@ -150,7 +120,9 @@ const Contact = () => {
                 <label htmlFor="name" className="fw-semibold fs-6">
                   Name:
                 </label>
+
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   placeholder="Your Name"
@@ -161,7 +133,9 @@ const Contact = () => {
                 <label htmlFor="email" className="fw-semibold fs-6">
                   Email:
                 </label>
+
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   placeholder="Your Email Address"
@@ -172,24 +146,28 @@ const Contact = () => {
                 <label htmlFor="message" className="fw-semibold fs-6">
                   Message:
                 </label>
+
                 <textarea
+                  id="message"
                   name="message"
                   rows="4"
                   placeholder="Write your message..."
                   required
-                  className="form-control bg-light fw-semibold my-2"></textarea>
+                  className="form-control bg-light fw-semibold my-2"
+                ></textarea>
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="btn form text-white fs-5 fw-bold my-2 w-100"
-                  disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Submit"}
+                >
+                  {loading ? "Sending..." : "Submit"}
                 </button>
               </form>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

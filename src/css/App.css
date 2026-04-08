@@ -1,0 +1,245 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-btn {
+  background: linear-gradient(to right, #7549f2, #da53f7);
+  color: white;
+  /* font-family: "Playpen Sans Thai", cursive; */
+  border: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #7549f2, #da53f7);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide scrollbar for all browsers */
+body {
+  scrollbar-width: 0; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/** Hero Section */
+
+.hero-image {
+  background-image: url("/heroimg.webp");
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/** About Section */
+
+.img-container {
+  position: relative;
+  height: 400px;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+  overflow: hidden;
+}
+
+/* Small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+  .img-container {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+  }
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.img-container:hover img {
+  transform: scale(1.03); /* Slight zoom-in on hover */
+}
+
+/* Shine beam */
+.shine {
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: rotate(0deg);
+  filter: blur(20px);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Trigger animation on hover */
+.img-container:hover .shine {
+  animation: shineEffect 0.8s linear;
+}
+
+/* Keyframes for shine beam movement */
+@keyframes shineEffect {
+  0% {
+    top: -150%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.shade {
+  padding: 0px 15px;
+  border-left: 5px solid #995cef;
+  border-radius: 15px;
+}
+
+/** Skills section */
+
+/* HTML */
+.html {
+  color: #ff5833;
+}
+
+/* CSS */
+.css {
+  color: #6d399e;
+}
+
+/* JavaScript */
+.js {
+  color: #ffe62a;
+}
+
+/* Bootstrap */
+.bootstrap {
+  color: #6e10f4;
+}
+
+/* GitHub */
+.github {
+  color: #24292e;
+}
+
+/* React */
+.react {
+  color: #10a9cc;
+}
+
+/* Git */
+.git {
+  color: #f1502f;
+}
+
+/* Npm */
+.npm {
+  color: #e93916;
+}
+
+/* MongoDB */
+.mongodb {
+  color: #03ae4b;
+}
+
+/* Node.js */
+.node {
+  color: #4aaa4d;
+}
+
+/* Express.js */
+.express {
+  color: #000;
+}
+
+/* Tailwind CSS */
+.tailwind {
+  color: #38bdf8;
+}
+
+/* Redux */
+.redux {
+  color: #593d88;
+}
+
+/* TypeScript */
+
+.typescript {
+  color: #3178c6;
+}
+
+/* MySQL */
+
+.mysql {
+  color: #00758f;
+}
+
+.skill-section {
+  background-image: url("/heroimg.webp");
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.skills-box {
+  height: 70vh;
+  overflow: visible;
+}
+
+/* Scroll Area */
+
+.skills-scroll {
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: auto;
+}
+
+.skills-scroll::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Each Section */
+
+.skills-page {
+  min-height: 100%;
+  scroll-snap-align: start;
+  background-color: #ffffff80;
+}
+
+/** Projects Section */
+
+.modal-backdrop {
+  transition: all 0.3s ease-in-out;
+}
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+/** Contact Section */
+
+.form {
+  color: #fff;
+  background: linear-gradient(45deg, #8ca7eb, #9772fd, #e7a7f6);
+}

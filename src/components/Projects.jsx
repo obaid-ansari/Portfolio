@@ -7,6 +7,8 @@ import Krewlnax from "../assets/Krewlanxs.webp";
 import Onleed from "../assets/onleed.webp";
 import Weather from "../assets/weatherapp.webp";
 import Curruency from "../assets/currency.webp";
+import "../css/App.css";
+
 const projects = [
   {
     id: "futuride",
@@ -53,7 +55,7 @@ const projects = [
   },
 ];
 
-const App = () => {
+const Projects = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   // 🔄 Preload large images for smoother transition
@@ -65,147 +67,146 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h3
-        className="pt-5 display-5 fw-bold text-center"
-        style={{ color: "#f5f4ed" }}
-      >
-        My <span className="gradient">Projects</span>
-      </h3>
+    <section id="projects" className="pt-4">
+      <div className="container">
+        <h3 className="pt-5 display-5 fw-bold text-center">
+          My <span className="gradient-text">Projects</span>
+        </h3>
 
-      <LayoutGroup>
-        <motion.div className="row mt-4 justify-content-center p-2">
-          {projects.map((project) => (
-            <motion.div
-              layoutId={project.id}
-              key={project.id}
-              className="col-12 col-md-5 col-lg-3 mx-1 my-3"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              onClick={() => setSelectedId(project.id)}
-              style={{ cursor: "pointer" }}
-            >
+        <LayoutGroup>
+          <motion.div className="row mt-4 justify-content-center">
+            {projects.map((project) => (
               <motion.div
-                className="card shadow border-0 rounded-4"
-                style={{
-                  backgroundImage: `url(${project.image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  overflow: "hidden",
-                  minHeight: "350px",
-                  position: "relative",
-                  willChange: "transform",
-                }}
-                layoutId={`image-${project.id}`}
+                layoutId={project.id}
+                key={project.id}
+                className="col-12 col-md-5 col-lg-3 mx-2 my-3"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                onClick={() => setSelectedId(project.id)}
+                style={{ cursor: "pointer" }}
               >
-                <div
+                <motion.div
+                  className="card shadow border-0 rounded-4"
                   style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    height: "80px",
-                    width: "100%",
-                    background: "linear-gradient(rgba(0,0,0,0.7),transparent)",
-                    color: "white",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
+                    backgroundImage: `url(${project.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    overflow: "hidden",
+                    minHeight: "350px",
+                    position: "relative",
+                    willChange: "transform",
+                  }}
+                  layoutId={`image-${project.id}`}
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      height: "80px",
+                      width: "100%",
+                      background:
+                        "linear-gradient(rgba(0, 0, 0,0.7),transparent)",
+                      color: "white",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <motion.p className="fw-bold ps-3 fs-3 d-flex">
+                      {project.title}
+                    </motion.p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Modal Detail View */}
+          <AnimatePresence>
+            {selectedId && (
+              <motion.div
+                className="modal-backdrop"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: "rgba(200, 200, 200, 0.4)",
+                  backdropFilter: "blur(15px)",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  zIndex: 1000,
+                }}
+                onClick={() => setSelectedId(null)}
+              >
+                <motion.div
+                  key={selectedId}
+                  initial={{ opacity: 0, y: 50, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 50, scale: 0.96 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="rounded-4 shadow d-flex flex-column align-items-start bg-white overflow-hidden"
+                  style={{
+                    width: "90%",
+                    maxWidth: "600px",
+                    willChange: "transform, opacity",
+                    transform: "translateZ(0)",
                   }}
                 >
-                  <motion.p className="fw-bold ps-3 fs-3 d-flex">
-                    {project.title}
-                  </motion.p>
-                </div>
+                  {(() => {
+                    const project = projects.find((p) => p.id === selectedId);
+                    return (
+                      <>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="rounded-top-4"
+                          style={{
+                            width: "100%",
+                            height: "350px",
+                            objectFit: "cover",
+                          }}
+                        />
+                        <motion.a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pt-3 text-black fw-bold fs-4 px-3 d-flex align-items-center text-decoration-none"
+                        >
+                          {project.title} <FaLink className="ms-2" />
+                        </motion.a>
+                        <motion.p className="px-3 m-0 pt-1 pb-3 text-black">
+                          {project.desc}
+                        </motion.p>
+                      </>
+                    );
+                  })()}
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Modal Detail View */}
-        <AnimatePresence>
-          {selectedId && (
-            <motion.div
-              className="modal-backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: "rgba(0, 0, 0, 0.3)",
-                backdropFilter: "blur(15px)",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                zIndex: 10000,
-              }}
-              onClick={() => setSelectedId(null)}
-            >
-              <motion.div
-                key={selectedId}
-                initial={{ opacity: 0, y: 50, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 50, scale: 0.96 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                onClick={(e) => e.stopPropagation()}
-                className="text-light rounded-4 shadow d-flex flex-column align-items-start"
-                style={{
-                  width: "90%",
-                  maxWidth: "600px",
-                  background: "#101011",
-                  willChange: "transform, opacity",
-                  transform: "translateZ(0)",
-                }}
-              >
-                {(() => {
-                  const project = projects.find((p) => p.id === selectedId);
-                  return (
-                    <>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="rounded-top-4"
-                        style={{
-                          width: "100%",
-                          height: "350px",
-                          objectFit: "cover",
-                        }}
-                      />
-                      <motion.a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="pt-3 fw-bold fs-4 px-3 d-flex align-items-center text-decoration-none text-light"
-                      >
-                        {project.title} <FaLink className="ms-2" />
-                      </motion.a>
-                      <motion.p className="px-3 m-0 pt-1 pb-3">
-                        {project.desc}
-                      </motion.p>
-                    </>
-                  );
-                })()}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </LayoutGroup>
-      <div className="d-flex justify-content-center my-4">
-        <a
-          href="https://allprojectsinone.netlify.app/"
-          target="main"
-          className="btn gradient-btn btn-lg text-white"
-        >
-          See All Projects
-        </a>
+            )}
+          </AnimatePresence>
+        </LayoutGroup>
+        <div className="d-flex justify-content-center my-4">
+          <a
+            href="https://allprojectsinone.netlify.app/"
+            target="main"
+            className="btn gradient-btn btn-lg fw-bold text-white"
+          >
+            See All Projects
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default App;
+export default Projects;

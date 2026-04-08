@@ -1,124 +1,130 @@
-import { useState, useEffect, useRef } from "react";
-
-import { Link } from "react-router-dom";
-import "../css/Header.css";
-
+import React, { useEffect } from "react";
+import "../css/App.css";
 const Header = () => {
-  const [isToggled, setIsToggled] = useState(false);
-  const navRef = useRef(null);
-
-  const handleOutsideClick = (event) => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      setIsToggled(false);
-      removeBlur();
-    }
-  };
-
   useEffect(() => {
-    if (isToggled) {
-      document.addEventListener("click", handleOutsideClick);
-    } else {
-      document.removeEventListener("click", handleOutsideClick);
-    }
+    const navbar = document.getElementById("navbarNav");
+
+    // Close when clicking nav links
+    const navLinks = document.querySelectorAll(
+      "#navbarNav .nav-link, #navbarNav .btn",
+    );
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navbar.classList.remove("show");
+      });
+    });
+
+    // Close when clicking outside
+    const handleOutsideClick = (event) => {
+      const isInsideNavbar =
+        navbar.contains(event.target) ||
+        event.target.closest(".navbar-toggler");
+
+      if (!isInsideNavbar) {
+        navbar.classList.remove("show");
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
-  }, [isToggled]);
-
-  const blurrybg = () => {
-    const nav = document.querySelector(".navbar");
-    let nextElements = nav ? nav.nextElementSibling : null;
-    while (nextElements) {
-      // nextElements.style.filter = "blur(10px)";
-      nextElements = nextElements.nextElementSibling;
-    }
-  };
-
-  const removeBlur = () => {
-    const nav = document.querySelector(".navbar");
-    let nextElements = nav ? nav.nextElementSibling : null;
-    while (nextElements) {
-      nextElements.style.filter = "none";
-      nextElements = nextElements.nextElementSibling;
-    }
-  };
+  }, []);
 
   return (
-    <nav
-      id="nav"
-      className="navbar navbar-expand-lg w-100 py-3 px-2"
-      style={{
-        backdropFilter: "blur(20px)",
-        backgroundColor: "hsla(0, 0%, 0%, 0.3)",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-      }}
-      data-bs-theme="dark"
-      ref={navRef}
-      data-aos="fade"
-      data-aos-delay="0"
-      data-aos-duration="1000"
-      data-aos-once="true">
-      <div className="container d-flex align-items-center justify-content-between">
-        {/* Logo Left */}
-        <a href="/" className="nav-brand gradient fs-3">
-          Obaid Ansari
-        </a>
-
-        {/* Toggler for mobile */}
-        <button
-          className="d-lg-none border border-black rounded-1"
-          type="button"
-          onClick={() => {
-            setIsToggled(!isToggled);
-            isToggled ? removeBlur() : blurrybg();
-          }}>
-          <span className="navbar-toggler-icon  fs-4 bg-black rounded-1"></span>
-        </button>
-
-        {/* Center Nav Links */}
+    <header
+      className="d-flex justify-content-center w-100 top-0"
+      style={{ position: "fixed", zIndex: "1000" }}
+    >
+      <nav
+        className="navbar navbar-expand-lg d-flex justify-content-center w-100"
+        style={{ maxWidth: "1100px" }}
+      >
         <div
-          className={`collapse navbar-collapse justify-content-center ${
-            isToggled ? "show" : ""
-          }`}>
-          <ul
-            className="navbar-nav mb-2 mb-lg-0"
-            onClick={(e) => {
-              if (!e.target.closest(".dropdown")) setIsToggled(false);
-            }}>
-            {["home", "about", "skills", "projects"].map((section) => (
-              <li className="nav-item" key={section}>
+          className="container rounded-5 px-4 p-2 my-1 mx-3 shadow"
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            backdropFilter: "blur(15px)",
+          }}
+        >
+          {/* Brand */}
+          <a
+            className="navbar-brand fw-bold fs-4 gradient-text fw-bolder"
+            href="#"
+          >
+            Obaid Ansari
+          </a>
+
+          {/* Toggle Button */}
+          <button
+            className="navbar-toggler border border-0 pe-0"
+            style={{ color: "transparent" }}
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+          >
+            <span className="navbar-toggler-icon text-white"></span>
+          </button>
+
+          {/* Nav Links */}
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav align-items-lg-center gap-lg-3">
+              <li className="nav-item">
                 <a
-                  className="nav-link fs-4 mx-2"
-                  href={`#${section}`}
-                  onClick={removeBlur}>
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  className="nav-link fs-5 text-black fw-semibold"
+                  href="#home"
+                >
+                  Home
                 </a>
               </li>
-            ))}
 
-            {/* CTA Button (Visible on small screens) */}
-            <li className="nav-item d-block d-lg-none text-center mt-2">
-              <a
-                href="#contact"
-                className="gradient-btn w-100 text-center text-decoration-none fw-bold fs-5 p-1 px-3 rounded-3"
-                onClick={removeBlur}>
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
+              <li className="nav-item">
+                <a
+                  className="nav-link fs-5 text-black fw-semibold"
+                  href="#about"
+                >
+                  About
+                </a>
+              </li>
 
-        {/* CTA Button (Visible on large screens) */}
-        <div className="d-none d-lg-block ms-auto">
-          <a
-            href="#contact"
-            className="gradient-btn w-100 text-center text-decoration-none fw-bold fs-5 py-1 px-3 rounded-3"
-            onClick={removeBlur}>
-            Contact
-          </a>
+              <li className="nav-item">
+                <a
+                  className="nav-link fs-5 text-black fw-semibold"
+                  href="#skills"
+                >
+                  Skills
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a
+                  className="nav-link fs-5 text-black fw-semibold"
+                  href="#projects"
+                >
+                  Projects
+                </a>
+              </li>
+
+              {/* Contact Button */}
+              <li className="nav-item pb-2 pb-lg-0">
+                <a
+                  href="#contact"
+                  className="btn text-white px-4 fs-5 fw-bold gradient-btn rounded-5 w-100"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 

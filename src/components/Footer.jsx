@@ -1,14 +1,12 @@
 import React from "react";
-import "../css/Footer.css";
 
 const Footer = () => {
   return (
-    <footer>
-      <div
-        className="text-center border-top border-secondary"
-        style={{ backgroundColor: "#101011" }}>
-        <p className="fw-semibold m-0 py-3" style={{ color: "#f5f4ed" }}>
-          &copy; 2025 Obaid Ansari. All rights reserved.
+    <footer className="border-top py-4">
+      <div className="container text-center">
+        <p className="small m-0">
+          © {new Date().getFullYear()} Built with focus on quality and
+          scalability.
         </p>
       </div>
     </footer>
