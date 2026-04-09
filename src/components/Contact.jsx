@@ -85,7 +85,7 @@ const Contact = () => {
 
         <div
           className="container px-4 py-5 d-flex justify-content-center"
-          data-aos="zoom-out-up"
+          data-aos="fade-up"
           data-aos-offset="100"
         >
           <div
