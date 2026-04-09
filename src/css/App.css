@@ -227,16 +227,6 @@ body::-webkit-scrollbar {
   background-color: #ffffff80;
 }
 
-/** Projects Section */
-
-.modal-backdrop {
-  transition: all 0.3s ease-in-out;
-}
-
-.card {
-  transition: transform 0.3s ease-in-out;
-}
-
 /** Contact Section */
 
 .form {

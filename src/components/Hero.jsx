@@ -18,7 +18,12 @@ const Hero = () => {
     <section className="hero-image d-flex justify-content-center" id="home">
       <div className="container mt-5 text-dark h-100 d-flex justify-content-center flex-column align-items-center">
         {/* Dynamic Role */}
-        <h1 className="display-6 fst-italic text-center fw-bold mb-4">
+        <h1
+          className="display-6 fst-italic text-center fw-bold mb-4"
+          data-aos="fade-down"
+          data-aos-offset="0"
+          data-aos-delay="50"
+        >
           I'm a{" "}
           <span>
             <ReactTyped
@@ -32,7 +37,12 @@ const Hero = () => {
         </h1>
 
         {/* Description */}
-        <h2 className="fs-1 fst-italic text-center fw-bold mb-4">
+        <h2
+          className="fs-1 fst-italic text-center fw-bold mb-4"
+          data-aos="fade-down"
+          data-aos-offset="0"
+          data-aos-delay="100"
+        >
           I build responsive, user-friendly websites and turn ideas into
           seamless digital experiences.
         </h2>
@@ -43,12 +53,18 @@ const Hero = () => {
             href={resume}
             download
             className="btn px-4 py-2 fs-5 rounded-4 shadow m-3 fw-bold gradient-btn text-white"
+            data-aos="fade-up"
+            data-aos-delay="0"
+            data-aos-offset="0"
           >
             Download CV
           </a>
           <a
             href="#projects"
             className="d-none d-sm-inline-block btn px-4 py-2 fs-5 rounded-4 shadow m-3 fw-bold btn-dark bg-dark"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-offset="0"
           >
             My Work
           </a>
@@ -57,7 +73,12 @@ const Hero = () => {
         {/* Social Links Grid */}
         <div className="row w-100 justify-content-center mt-5">
           {/* Facebook */}
-          <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <div
+            className="col-5 col-sm-6 col-md-5 col-lg-2 m-2"
+            data-aos="fade-up"
+            data-aos-delay="50"
+            data-aos-offset="0"
+          >
             <a
               href="https://www.facebook.com/obaidansari01/"
               className="d-flex flex-column align-items-center text-dark justify-content-center text-decoration-none"
@@ -68,7 +89,12 @@ const Hero = () => {
           </div>
 
           {/* GitHub */}
-          <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <div
+            className="col-5 col-sm-6 col-md-5 col-lg-2 m-2"
+            data-aos="fade-up"
+            data-aos-offset="0"
+            data-aos-delay="100"
+          >
             <a
               href="https://github.com/obaid-ansari"
               className="d-flex flex-column align-items-center text-dark justify-content-center text-decoration-none"
@@ -79,7 +105,12 @@ const Hero = () => {
           </div>
 
           {/* LinkedIn */}
-          <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <div
+            className="col-5 col-sm-6 col-md-5 col-lg-2 m-2"
+            data-aos="fade-up"
+            data-aos-offset="0"
+            data-aos-delay="200"
+          >
             <a
               href="https://www.linkedin.com/in/obaid-ansari/"
               className="d-flex flex-column align-items-center text-dark justify-content-center text-decoration-none"
@@ -90,7 +121,12 @@ const Hero = () => {
           </div>
 
           {/* Gmail */}
-          <div className="col-5 col-sm-6 col-md-5 col-lg-2 m-2">
+          <div
+            className="col-5 col-sm-6 col-md-5 col-lg-2 m-2"
+            data-aos="fade-up"
+            data-aos-offset="0"
+            data-aos-delay="300"
+          >
             <a
               href="mailto:ansari.ubaid.1020@gmail.com"
               className="d-flex flex-column align-items-center text-dark justify-content-center text-decoration-none"

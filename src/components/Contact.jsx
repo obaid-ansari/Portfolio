@@ -83,7 +83,11 @@ const Contact = () => {
           Contact <span className="gradient-text">Me</span>
         </h3>
 
-        <div className="container px-4 py-5 d-flex justify-content-center">
+        <div
+          className="container px-4 py-5 d-flex justify-content-center"
+          data-aos="zoom-out-up"
+          data-aos-offset="100"
+        >
           <div
             className="row shadow col-lg-10 align-items-stretch p-2 rounded-4"
             style={{ background: "#9772fd66" }}

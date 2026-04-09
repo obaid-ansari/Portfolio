@@ -16,6 +16,7 @@ const projects = [
     desc: "Futuride is your personalized career navigator designed to support students, freshers, and professionals looking to switch careers. It helps you explore the most suitable professions by aligning your interests, strengths, and academic background.",
     image: Futuride,
     link: "https://futuride.netlify.app/",
+    delay: 50,
   },
   {
     id: "krewlanx",
@@ -23,6 +24,7 @@ const projects = [
     desc: "Krewlanx Tech offers web development, UI/UX design, and digital growth solutions. Our goal is to deliver clean, user first technology that works and scales.",
     image: Krewlnax,
     link: "https://www.krewlanxtech.me/",
+    delay: 100,
   },
   {
     id: "safa",
@@ -30,6 +32,7 @@ const projects = [
     desc: "A user-friendly platform offering flight bookings, hotel stays, visas, holiday packages, forex, and religious tours like Hajj and Umrah, with direct Gmail inquiries for easy communication.",
     image: Safa,
     link: "https://safatour.netlify.app/",
+    delay: 200,
   },
   {
     id: "Onleeds",
@@ -37,6 +40,7 @@ const projects = [
     desc: "Founded in August 2024, Onleed Media is a digital marketing agency specializing in sales optimization, lead generation, targeted ads (Google, Meta, LinkedIn), and website development. We help businesses grow online with innovative strategies.",
     image: Onleed,
     link: "https://onleedmedia.com/",
+    delay: 50,
   },
   {
     id: "weather",
@@ -44,6 +48,7 @@ const projects = [
     desc: "A simple weather app created by me that shows real-time temperature, humidity, wind speed, and weather conditions of any city using live API data.",
     image: Weather,
     link: "https://checkweatherinfoapp.netlify.app/",
+    delay: 100,
   },
 
   {
@@ -52,6 +57,7 @@ const projects = [
     desc: "A handy tool to convert between major global currencies using live exchange rates. Designed for ease of use with real-time updates and a clean UI.",
     image: Curruency,
     link: "https://currencyconverterp.netlify.app/",
+    delay: 200,
   },
 ];
 
@@ -80,10 +86,11 @@ const Projects = () => {
                 layoutId={project.id}
                 key={project.id}
                 className="col-12 col-md-5 col-lg-3 mx-2 my-3"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
                 onClick={() => setSelectedId(project.id)}
                 style={{ cursor: "pointer" }}
+                data-aos="fade-up"
+                data-aos-delay={project.delay}
+                data-aos-offset="100"
               >
                 <motion.div
                   className="card shadow border-0 rounded-4"

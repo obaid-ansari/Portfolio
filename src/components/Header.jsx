@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header
       className="d-flex justify-content-center w-100 top-0"
-      style={{ position: "fixed", zIndex: "1000" }}
+      style={{ position: "fixed", zIndex: "10000" }}
     >
       <nav
         className="navbar navbar-expand-lg d-flex justify-content-center w-100"
@@ -48,6 +48,8 @@ const Header = () => {
             backgroundColor: "rgba(255, 255, 255, 0.3)",
             backdropFilter: "blur(15px)",
           }}
+          data-aos="fade-down"
+          data-aos-offset="0"
         >
           {/* Brand */}
           <a
