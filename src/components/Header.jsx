@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header
       className="d-flex justify-content-center w-100 top-0"
-      style={{ position: "fixed", zIndex: "999" }}
+      style={{ position: "fixed", zIndex: "900" }}
     >
       <nav
         className="navbar navbar-expand-lg d-flex justify-content-center w-100"
