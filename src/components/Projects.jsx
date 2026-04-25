@@ -3,8 +3,8 @@ import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { FaLink } from "react-icons/fa6";
 import Safa from "../assets/safa.webp";
 import Futuride from "../assets/futuride.webp";
-import Krewlnax from "../assets/Krewlanxs.webp";
-import Onleed from "../assets/onleed.webp";
+import QuickBuy from "../assets/QuickBuy.webp";
+import Movix from "../assets/Movix.webp";
 import Weather from "../assets/weatherapp.webp";
 import Curruency from "../assets/currency.webp";
 import "../css/App.css";
@@ -19,11 +19,11 @@ const projects = [
     delay: 50,
   },
   {
-    id: "krewlanx",
-    title: "Krewlanx Tech",
-    desc: "Krewlanx Tech offers web development, UI/UX design, and digital growth solutions. Our goal is to deliver clean, user first technology that works and scales.",
-    image: Krewlnax,
-    link: "https://www.krewlanxtech.me/",
+    id: "quickbuy",
+    title: "QuickBuy",
+    desc: "QuickBuy is a full-stack e-commerce web application that allows users to browse products, add items to a cart, place orders, and manage their accounts. The platform includes secure authentication, product management, and order processing built to simulate a real-world online shopping system.",
+    image: QuickBuy,
+    link: "https://quickbuysite.netlify.app/",
     delay: 100,
   },
   {
@@ -35,11 +35,11 @@ const projects = [
     delay: 200,
   },
   {
-    id: "Onleeds",
-    title: "Onleeds Media",
-    desc: "Founded in August 2024, Onleed Media is a digital marketing agency specializing in sales optimization, lead generation, targeted ads (Google, Meta, LinkedIn), and website development. We help businesses grow online with innovative strategies.",
-    image: Onleed,
-    link: "https://onleedmedia.com/",
+    id: "movix",
+    title: "Movix",
+    desc: "A responsive and interactive movie finder web app built with React.js, powered by the OMDb API, where users can search movies, view detailed info, and save favorites. Features include real-time search, movie details (year, genre, IMDb rating, plot), and favorite management using Context API.",
+    image: Movix,
+    link: "https://webmovix.netlify.app/",
     delay: 50,
   },
   {
