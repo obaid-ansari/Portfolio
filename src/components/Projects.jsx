@@ -11,19 +11,19 @@ import "../css/App.css";
 
 const projects = [
   {
-    id: "futuride",
-    title: "Futuride",
-    desc: "Futuride is your personalized career navigator designed to support students, freshers, and professionals looking to switch careers. It helps you explore the most suitable professions by aligning your interests, strengths, and academic background.",
-    image: Futuride,
-    link: "https://futuride.netlify.app/",
-    delay: 50,
-  },
-  {
     id: "quickbuy",
     title: "QuickBuy",
     desc: "QuickBuy is a full-stack e-commerce web application that allows users to browse products, add items to a cart, place orders, and manage their accounts. The platform includes secure authentication, product management, and order processing built to simulate a real-world online shopping system.",
     image: QuickBuy,
     link: "https://quickbuysite.netlify.app/",
+    delay: 50,
+  },
+  {
+    id: "futuride",
+    title: "Futuride",
+    desc: "Futuride is your personalized career navigator designed to support students, freshers, and professionals looking to switch careers. It helps you explore the most suitable professions by aligning your interests, strengths, and academic background.",
+    image: Futuride,
+    link: "https://futuride.netlify.app/",
     delay: 100,
   },
   {
